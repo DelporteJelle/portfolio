@@ -1,0 +1,269 @@
+<h2>Photograph + algorithm — how should they share the page?</h2>
+<p class="subtitle">Your Tronk hex-snake is the animation (it's real, it's yours, and nobody else's portfolio has it). B&amp;W city photos are the ground. The open question is <strong>how much room each gets</strong>. All three below are running live — watch the trails route themselves. Photos are stand-ins: the alley and the old-town street for your city shots, the monochrome macro at the bottom for your cockchafer.</p>
+
+<style>
+  .m { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .m .bar { height: 22px; background: #d8d8dc; display: flex; align-items: center; gap: 5px; padding: 0 9px; }
+  .m .bar i { width: 8px; height: 8px; border-radius: 50%; background: #b6b6bb; display: block; }
+  .option .content { width: 100%; }
+  .meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .meta div { font-size: 0.78rem; color: var(--text-secondary); }
+  .meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .paper { background: #faf8f4; color: #1a1a17; font-family: Georgia, 'Times New Roman', serif; }
+  .mono { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .idxrow { display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #e9e4d9; }
+  .idxrow:first-child { border-top: 1px solid #e9e4d9; }
+  .idxrow .n { font-size: 9px; color: #b3ac9b; }
+  .idxrow .t { font-size: 13px; }
+  .idxrow .y { font-size: 9.5px; color: #8a8577; }
+
+  /* ---- V1 overlay ---- */
+  .v1 .hero { position: relative; height: 210px; overflow: hidden; background: #16150f; }
+  .v1 .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06); }
+  .v1 .hero .scrim { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,13,10,0.28), rgba(14,13,10,0.68)); }
+  .v1 .hexboard { position: absolute; inset: 0; }
+  .v1 .over { position: absolute; inset: 0; padding: 18px 28px; display: flex; flex-direction: column; justify-content: space-between; color: #f7f3ec; }
+  .v1 .nv { display: flex; justify-content: space-between; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; }
+  .v1 .hd { font-size: 29px; line-height: 1.22; max-width: 19ch; text-shadow: 0 2px 30px rgba(0,0,0,0.55); }
+  .v1 .hd em { font-style: italic; }
+  .v1 .below { padding: 18px 28px 22px; }
+
+  /* ---- V2 split ---- */
+  .v2 .top { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 26px 10px; border-bottom: 1px solid #e3ded2; }
+  .v2 .top .nm { font-size: 13.5px; }
+  .v2 .top .nv { font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8577; display: flex; gap: 13px; }
+  .v2 .duo { display: grid; grid-template-columns: 1.05fr 1fr; height: 190px; }
+  .v2 .ph { position: relative; overflow: hidden; }
+  .v2 .ph img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .v2 .ph .cap { position: absolute; left: 12px; bottom: 10px; font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; opacity: 0.82; text-shadow: 0 1px 6px #000; }
+  .v2 .lab { position: relative; background: #f3eee3; border-left: 1px solid #e3ded2; }
+  .v2 .lab .hexboard { position: absolute; inset: 0; }
+  .v2 .lab .tag { position: absolute; left: 14px; bottom: 10px; font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #97907f; }
+  .v2 .lede { padding: 18px 26px 6px; font-size: 21px; line-height: 1.34; max-width: 30ch; }
+  .v2 .lede em { font-style: italic; color: #a8624a; }
+  .v2 .below { padding: 10px 26px 20px; }
+
+  /* ---- V3 motif ---- */
+  .v3 .hero { position: relative; height: 178px; overflow: hidden; }
+  .v3 .hero img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.04); }
+  .v3 .hero .scrim { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,11,9,0.18), rgba(12,11,9,0.6)); }
+  .v3 .over { position: absolute; inset: 0; padding: 16px 26px; display: flex; flex-direction: column; justify-content: space-between; color: #f7f3ec; }
+  .v3 .nv { display: flex; justify-content: space-between; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; }
+  .v3 .hd { font-size: 25px; line-height: 1.24; max-width: 22ch; }
+  .v3 .below { padding: 16px 26px 20px; position: relative; }
+  .v3 .hexrow { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: center; padding: 9px 0; border-bottom: 1px solid #e9e4d9; }
+  .v3 .hexrow:first-of-type { border-top: 1px solid #e9e4d9; }
+  .v3 .hexrow .t { font-size: 13px; }
+  .v3 .hexrow .y { font-size: 9.5px; color: #8a8577; }
+  .v3 .hexrow .hx { width: 13px; height: 15px; }
+  .v3 .hexrow .hx polygon { fill: none; stroke: #cbc2ac; stroke-width: 1.2; }
+  .v3 .hexrow.live .hx polygon { fill: #a8624a; stroke: #a8624a; }
+  .v3 .hexrow.live .t { color: #a8624a; }
+  .v3 .foot { margin-top: 12px; font-size: 9.5px; color: #97907f; letter-spacing: 0.05em; }
+
+  /* photo strip */
+  .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 0.5rem; }
+  .strip figure { margin: 0; }
+  .strip img { width: 100%; height: 96px; object-fit: cover; border-radius: 6px; filter: grayscale(1) contrast(1.06); display: block; }
+  .strip figcaption { font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.3rem; letter-spacing: 0.02em; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <!-- ============ V1 ============ -->
+  <div class="option" data-choice="overlay" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Overlay — the algorithm runs across the photograph</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">One surface, two layers: your city shot underneath, a faint hex lattice over it, and Tronk's trails routing through the streets. The city and the grid are the same idea twice — that's the whole concept in a single image.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper v1">
+          <div class="hero">
+            <img src="https://picsum.photos/seed/grid/1200/620?grayscale" alt="">
+            <div class="scrim"></div>
+            <div class="hexboard" data-size="17" data-mode="dark" data-len="16"></div>
+            <div class="over">
+              <div class="nv mono"><span>Jelle Delporte</span><span>Work · Writing · About</span></div>
+              <div class="hd">I build software, mostly the kind that <em>quietly holds</em> other things up.</div>
+            </div>
+          </div>
+          <div class="below">
+            <div class="idxrow"><div class="n mono">01</div><div class="t">Tronk — hex-grid snake, written for a competition</div><div class="y mono">2025</div></div>
+            <div class="idxrow"><div class="n mono">02</div><div class="t">Ledger — double-entry engine in TypeScript</div><div class="y mono">2024</div></div>
+            <div class="idxrow"><div class="n mono">03</div><div class="t">Fieldnote — offline-first note sync</div><div class="y mono">2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Strongest idea</b> photo and algorithm are one image</div>
+        <div><b>Risk</b> the animation competes with the headline — has to stay very quiet</div>
+        <div><b>Best if</b> your city photos have strong structure (streets, facades, lines)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ V2 ============ -->
+  <div class="option" data-choice="split" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>Split — photograph and board each get their own room</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">The hero is two panels: your photograph on the left, a live Tronk board on the right, on paper. Neither fights the other, and the board can be actually playable rather than decorative.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper v2">
+          <div class="top"><div class="nm">Jelle Delporte</div><div class="nv mono"><span>Work</span><span>Writing</span><span>About</span></div></div>
+          <div class="duo">
+            <div class="ph"><img src="https://picsum.photos/seed/lantern/700/560?grayscale" alt=""><div class="cap mono">Ghent, 2024</div></div>
+            <div class="lab">
+              <div class="hexboard" data-size="15" data-mode="light" data-len="18"></div>
+              <div class="tag mono">Tronk — live, playable</div>
+            </div>
+          </div>
+          <div class="lede">I build software, mostly the kind that <em>quietly holds</em> other things up.</div>
+          <div class="below">
+            <div class="idxrow"><div class="n mono">01</div><div class="t">Ledger — double-entry engine in TypeScript</div><div class="y mono">2024</div></div>
+            <div class="idxrow"><div class="n mono">02</div><div class="t">Fieldnote — offline-first note sync</div><div class="y mono">2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Strongest idea</b> the board is a toy you can touch, not wallpaper</div>
+        <div><b>Risk</b> two focal points, so the page reads slower</div>
+        <div><b>Best if</b> you want Tronk playable on the front page</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ V3 ============ -->
+  <div class="option" data-choice="motif" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>Motif — the photo stays clean, the hex becomes the site's grammar</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">No animation on the hero at all. The hexagon becomes the small recurring mark of the site — list bullets, hover states, section dividers — and the real Tronk simulation lives full-bleed on its own project page, where it can be as loud as it deserves. <em>Hover the project rows.</em></p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper v3">
+          <div class="hero">
+            <img src="https://picsum.photos/seed/lantern/1200/560?grayscale" alt="">
+            <div class="scrim"></div>
+            <div class="over">
+              <div class="nv mono"><span>Jelle Delporte</span><span>Work · Writing · About</span></div>
+              <div class="hd">I build software, mostly the kind that quietly holds other things up.</div>
+            </div>
+          </div>
+          <div class="below">
+            <div class="hexrow live"><svg class="hx" viewBox="0 0 20 23"><polygon points="10,1 19,6.5 19,17.5 10,22 1,17.5 1,6.5"/></svg><div class="t">Tronk — hex-grid snake, written for a competition</div><div class="y mono">2025</div></div>
+            <div class="hexrow"><svg class="hx" viewBox="0 0 20 23"><polygon points="10,1 19,6.5 19,17.5 10,22 1,17.5 1,6.5"/></svg><div class="t">Ledger — double-entry engine in TypeScript</div><div class="y mono">2024</div></div>
+            <div class="hexrow"><svg class="hx" viewBox="0 0 20 23"><polygon points="10,1 19,6.5 19,17.5 10,22 1,17.5 1,6.5"/></svg><div class="t">Fieldnote — offline-first note sync</div><div class="y mono">2024</div></div>
+            <div class="foot mono">THE SIMULATION LIVES ON /WORK/TRONK — FULL WIDTH, PLAYABLE</div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Strongest idea</b> restraint — nothing moves until you go looking</div>
+        <div><b>Risk</b> quietest of the three; the front page rests entirely on photo + words</div>
+        <div><b>Best if</b> you want the site calm and the depth one click down</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:1.5rem">
+  <div class="label">On your photographs</div>
+  <p class="subtitle" style="margin-bottom:0.6rem">Monochrome solves your green problem — treat every photo the same way and the cockchafer stops being "a green nature shot" and becomes texture that belongs with the cities. Left to right: alley, old town, and a macro standing in for the cockchafer.</p>
+  <div class="strip">
+    <figure><img src="https://picsum.photos/seed/grid/600/400?grayscale" alt=""><figcaption>Structure — works under type</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/lantern/600/400?grayscale" alt=""><figcaption>Depth — works as a hero</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/quay/600/400?grayscale" alt=""><figcaption>Macro — works as an accent, not a hero</figcaption></figure>
+  </div>
+</div>
+
+<script>
+(function () {
+  var ACCENT = '#c9743f', RIVAL = '#f2ede3';
+  function build(el) {
+    var size = +(el.dataset.size || 16), mode = el.dataset.mode || 'dark',
+        want = +(el.dataset.len || 16);
+    var W = el.clientWidth || 520, H = el.clientHeight || 200;
+    var hw = Math.sqrt(3) * size, vh = 1.5 * size;
+    var cols = Math.ceil(W / hw) + 2, rows = Math.ceil(H / vh) + 2;
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%');
+    svg.style.display = 'block';
+    var faint = mode === 'dark' ? 'rgba(255,255,255,0.13)' : 'rgba(120,110,90,0.22)';
+    function center(c, r) { return [hw * (c + (r % 2 ? 0.5 : 0)) - hw / 2, vh * r - vh / 2]; }
+    var g = document.createElementNS(svg.namespaceURI, 'g');
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+      var p = center(c, r), pts = [];
+      for (var i = 0; i < 6; i++) {
+        var a = Math.PI / 180 * (60 * i - 30);
+        pts.push((p[0] + size * Math.cos(a)).toFixed(1) + ',' + (p[1] + size * Math.sin(a)).toFixed(1));
+      }
+      var poly = document.createElementNS(svg.namespaceURI, 'polygon');
+      poly.setAttribute('points', pts.join(' '));
+      poly.setAttribute('fill', 'none');
+      poly.setAttribute('stroke', faint);
+      poly.setAttribute('stroke-width', '1');
+      g.appendChild(poly);
+    }
+    svg.appendChild(g);
+
+    function neighbors(c, r) {
+      var odd = r % 2;
+      return odd
+        ? [[c + 1, r], [c - 1, r], [c + 1, r - 1], [c, r - 1], [c + 1, r + 1], [c, r + 1]]
+        : [[c + 1, r], [c - 1, r], [c, r - 1], [c - 1, r - 1], [c, r + 1], [c - 1, r + 1]];
+    }
+    function walk(sc, sr) {
+      var seen = {}, path = [[sc, sr]]; seen[sc + ',' + sr] = 1;
+      var cur = [sc, sr];
+      for (var i = 0; i < want; i++) {
+        var opts = neighbors(cur[0], cur[1]).filter(function (n) {
+          return n[0] >= 0 && n[0] < cols && n[1] >= 0 && n[1] < rows && !seen[n[0] + ',' + n[1]];
+        });
+        if (!opts.length) break;
+        cur = opts[Math.floor(Math.random() * opts.length)];
+        seen[cur[0] + ',' + cur[1]] = 1; path.push(cur);
+      }
+      return path;
+    }
+    function trail(sc, sr, color, dur, delay, width) {
+      var pts = walk(sc, sr).map(function (n) { var p = center(n[0], n[1]); return p[0] + ',' + p[1]; });
+      if (pts.length < 3) return;
+      var d = 'M' + pts.join(' L');
+      var path = document.createElementNS(svg.namespaceURI, 'path');
+      path.setAttribute('d', d); path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', color); path.setAttribute('stroke-width', width);
+      path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round');
+      path.setAttribute('opacity', mode === 'dark' ? '0.9' : '0.85');
+      svg.appendChild(path);
+      var L = path.getTotalLength();
+      path.style.strokeDasharray = L + ' ' + L;
+      path.style.strokeDashoffset = L;
+      path.animate(
+        [{ strokeDashoffset: L }, { strokeDashoffset: 0, offset: 0.72 }, { strokeDashoffset: -L }],
+        { duration: dur, delay: delay, iterations: Infinity, easing: 'linear' }
+      );
+      var head = document.createElementNS(svg.namespaceURI, 'circle');
+      head.setAttribute('r', width * 1.5); head.setAttribute('fill', color);
+      svg.appendChild(head);
+      var mo = document.createElementNS(svg.namespaceURI, 'animateMotion');
+      mo.setAttribute('dur', (dur * 0.72) / 1000 + 's');
+      mo.setAttribute('begin', delay / 1000 + 's');
+      mo.setAttribute('repeatCount', 'indefinite');
+      mo.setAttribute('path', d);
+      mo.setAttribute('keyPoints', '0;1'); mo.setAttribute('keyTimes', '0;1'); mo.setAttribute('calcMode', 'linear');
+      head.appendChild(mo);
+    }
+    trail(1, Math.floor(rows * 0.7), ACCENT, 9000, 0, 2.2);
+    trail(cols - 2, 1, RIVAL, 9000, 2600, 1.6);
+    el.innerHTML = ''; el.appendChild(svg);
+  }
+  function init() { document.querySelectorAll('.hexboard').forEach(build); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else setTimeout(init, 30);
+})();
+</script>

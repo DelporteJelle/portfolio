@@ -1,0 +1,228 @@
+<h2>Visual identity — same layout, three voices</h2>
+<p class="subtitle">Structure is fixed now: photographic hero → four cards, three across → about. Below, that exact page is dressed three ways. Real typefaces, real palettes. Judge the <strong>voice</strong>, not the copy.</p>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  .m { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .m .bar { height: 22px; background: #d8d8dc; display: flex; align-items: center; gap: 5px; padding: 0 9px; }
+  .m .bar i { width: 8px; height: 8px; border-radius: 50%; background: #b6b6bb; display: block; }
+  .option .content { width: 100%; }
+  .meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .meta div { font-size: 0.78rem; color: var(--text-secondary); max-width: 32ch; }
+  .meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .swatches { display: flex; gap: 5px; margin-top: 0.6rem; align-items: center; }
+  .swatches i { width: 26px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,.15); display: block; }
+  .swatches small { font-size: 0.68rem; color: var(--text-secondary); margin-left: 4px; font-family: ui-monospace, Menlo, monospace; }
+
+  /* shared skeleton */
+  .site { }
+  .site .hero { position: relative; height: 118px; overflow: hidden; }
+  .site .hero img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .site .hero .sc { position: absolute; inset: 0; }
+  .site .over { position: absolute; inset: 0; padding: 14px 22px; display: flex; flex-direction: column; justify-content: space-between; }
+  .site .nav { display: flex; justify-content: space-between; align-items: center; }
+  .site .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
+  .site .thumb { position: relative; aspect-ratio: 4/3; filter: grayscale(1); }
+  .site .body { padding: 18px 22px 22px; }
+  .site .sech { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 11px; }
+  .barz { position: absolute; left: 8px; right: 8px; bottom: 8px; display: flex; align-items: flex-end; gap: 3px; height: 55%; }
+  .linez { position: absolute; left: 8px; right: 8px; bottom: 8px; }
+  .linez i { display: block; height: 4px; margin-bottom: 4px; }
+  .hexz { position: absolute; inset: 0; }
+
+  /* ============ A — warm editorial ============ */
+  .A { background: #f7f4ee; color: #1c1a17; }
+  .A .hero .sc { background: linear-gradient(to bottom, rgba(20,17,12,.30), rgba(20,17,12,.66)); }
+  .A .nav .nm { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 13px; color: #f6f2ea; }
+  .A .nav .lk { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: .13em; text-transform: uppercase; color: #ded6c6; }
+  .A .hd { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 25px; line-height: 1.18; color: #faf6ee; max-width: 21ch; }
+  .A .hd em { font-style: italic; }
+  .A .sech .l { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; color: #a1957c; }
+  .A .card { border: 1px solid #e4ddcd; background: #fdfbf6; overflow: hidden; }
+  .A .thumb { background: #eee8db; border-bottom: 1px solid #e9e2d2; }
+  .A .cb { padding: 8px 10px 11px; }
+  .A .ct { font-family: 'Fraunces', Georgia, serif; font-size: 13.5px; font-weight: 400; display: flex; justify-content: space-between; align-items: baseline; }
+  .A .ct em { font-style: normal; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: #9a917d; }
+  .A .cd { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; line-height: 1.5; color: #6b6558; margin-top: 5px; }
+  .A .tg { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: .07em; text-transform: uppercase; color: #9c5a32; margin-top: 7px; }
+  .A .barz span { flex: 1; background: #cfc5ad; } .A .barz span:nth-child(2n) { background: #a89b7f; }
+  .A .linez i { background: #ded5c1; }
+
+  /* ============ B — cool precise ============ */
+  .B { background: #f3f4f6; color: #14161a; }
+  .B .hero .sc { background: linear-gradient(to bottom, rgba(10,12,16,.24), rgba(10,12,16,.62)); }
+  .B .nav .nm { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12.5px; letter-spacing: -.01em; color: #fff; }
+  .B .nav .lk { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: #d3d7dd; }
+  .B .hd { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 24px; line-height: 1.16; letter-spacing: -.02em; color: #fff; max-width: 22ch; }
+  .B .sech .l { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; color: #8b93a1; }
+  .B .card { border: 1px solid #e0e3e8; background: #fff; overflow: hidden; border-radius: 4px; }
+  .B .thumb { background: #e8eaee; border-bottom: 1px solid #e4e7ec; }
+  .B .cb { padding: 8px 10px 11px; }
+  .B .ct { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: -.01em; display: flex; justify-content: space-between; align-items: baseline; }
+  .B .ct em { font-style: normal; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: #8b93a1; }
+  .B .cd { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; line-height: 1.5; color: #545c69; margin-top: 5px; }
+  .B .tg { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: .07em; text-transform: uppercase; color: #2f52c9; margin-top: 7px; }
+  .B .barz span { flex: 1; background: #c6ccd6; } .B .barz span:nth-child(2n) { background: #99a3b2; }
+  .B .linez i { background: #d9dee5; }
+
+  /* ============ C — dark ============ */
+  .C { background: #0f1012; color: #eceae5; }
+  .C .hero img { filter: grayscale(1) contrast(1.1) brightness(.95); }
+  .C .hero .sc { background: linear-gradient(to bottom, rgba(15,16,18,.1), rgba(15,16,18,.95)); }
+  .C .nav .nm { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 13px; color: #f4f1ea; }
+  .C .nav .lk { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: .13em; text-transform: uppercase; color: #9a958a; }
+  .C .hd { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 25px; line-height: 1.18; color: #f4f1ea; max-width: 21ch; }
+  .C .hd em { font-style: italic; color: #d9a45f; }
+  .C .sech .l { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; color: #736e63; }
+  .C .card { border: 1px solid #24262a; background: #16171a; overflow: hidden; }
+  .C .thumb { background: #1c1e21; border-bottom: 1px solid #24262a; filter: grayscale(1) brightness(.92); }
+  .C .cb { padding: 8px 10px 11px; }
+  .C .ct { font-family: 'Fraunces', Georgia, serif; font-size: 13.5px; font-weight: 400; display: flex; justify-content: space-between; align-items: baseline; }
+  .C .ct em { font-style: normal; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: #7c7669; }
+  .C .cd { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; line-height: 1.5; color: #9d988d; margin-top: 5px; }
+  .C .tg { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: .07em; text-transform: uppercase; color: #d9a45f; margin-top: 7px; }
+  .C .barz span { flex: 1; background: #3a3d42; } .C .barz span:nth-child(2n) { background: #55595f; }
+  .C .linez i { background: #2c2f33; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <!-- ========== A ========== -->
+  <div class="option" data-choice="warm-editorial" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Warm editorial — Fraunces on paper</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Cream ground, a soft-serif display face, sans for body copy, mono for metadata. Human and unhurried; your black-and-white photographs sit on it like plates in a book.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="site A">
+          <div class="hero"><img src="https://picsum.photos/seed/lantern/1200/400?grayscale" alt=""><div class="sc"></div>
+            <div class="over"><div class="nav"><span class="nm">Jelle Delporte</span><span class="lk">Work · About</span></div>
+            <div class="hd">I build software, mostly the kind that <em>quietly holds</em> other things up.</div></div>
+          </div>
+          <div class="body">
+            <div class="sech"><span class="l">Selected work</span><span class="l">2023 — 2026</span></div>
+            <div class="cards">
+              <div class="card"><div class="thumb"><div class="hexz" data-hex="warm"></div></div><div class="cb"><div class="ct"><span>Tronk</span><em>2025</em></div><div class="cd">Snake bot on a hex grid, built for a live competition.</div><div class="tg">TypeScript · Search</div></div></div>
+              <div class="card"><div class="thumb"><div class="barz"><span style="height:42%"></span><span style="height:72%"></span><span style="height:54%"></span><span style="height:86%"></span><span style="height:35%"></span></div></div><div class="cb"><div class="ct"><span>Ledger</span><em>2024</em></div><div class="cd">Balances derived from an immutable log, never stored.</div><div class="tg">TypeScript · Domain</div></div></div>
+              <div class="card"><div class="thumb"><div class="linez"><i></i><i style="width:70%"></i><i></i><i style="width:48%"></i><i></i></div></div><div class="cb"><div class="ct"><span>Fieldnote</span><em>2024</em></div><div class="cd">Notes that sync device to device with no server.</div><div class="tg">CRDT · Offline</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swatches"><i style="background:#f7f4ee"></i><i style="background:#1c1a17"></i><i style="background:#9c5a32"></i><small>paper · ink · rust</small></div>
+      <div class="meta">
+        <div><b>Voice</b> considered, literary, a bit older than you</div>
+        <div><b>Best with</b> old-town photography and longer write-ups</div>
+        <div><b>Risk</b> if the writing is thin, it reads as costume</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== B ========== -->
+  <div class="option" data-choice="cool-precise" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Cool precise — Space Grotesk on cold grey</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Tight geometric sans, cool neutral ground, small radius on the cards, one saturated blue used only for links and tags. Reads as engineering — current, deliberate, closer to a product than a publication.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="site B">
+          <div class="hero"><img src="https://picsum.photos/seed/grid/1200/400?grayscale" alt=""><div class="sc"></div>
+            <div class="over"><div class="nav"><span class="nm">Jelle Delporte</span><span class="lk">Work · About</span></div>
+            <div class="hd">I build software, mostly the kind that quietly holds other things up.</div></div>
+          </div>
+          <div class="body">
+            <div class="sech"><span class="l">Selected work</span><span class="l">2023 — 2026</span></div>
+            <div class="cards">
+              <div class="card"><div class="thumb"><div class="hexz" data-hex="cool"></div></div><div class="cb"><div class="ct"><span>Tronk</span><em>2025</em></div><div class="cd">Snake bot on a hex grid, built for a live competition.</div><div class="tg">TypeScript · Search</div></div></div>
+              <div class="card"><div class="thumb"><div class="barz"><span style="height:42%"></span><span style="height:72%"></span><span style="height:54%"></span><span style="height:86%"></span><span style="height:35%"></span></div></div><div class="cb"><div class="ct"><span>Ledger</span><em>2024</em></div><div class="cd">Balances derived from an immutable log, never stored.</div><div class="tg">TypeScript · Domain</div></div></div>
+              <div class="card"><div class="thumb"><div class="linez"><i></i><i style="width:70%"></i><i></i><i style="width:48%"></i><i></i></div></div><div class="cb"><div class="ct"><span>Fieldnote</span><em>2024</em></div><div class="cd">Notes that sync device to device with no server.</div><div class="tg">CRDT · Offline</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swatches"><i style="background:#f3f4f6"></i><i style="background:#14161a"></i><i style="background:#2f52c9"></i><small>fog · graphite · signal blue</small></div>
+      <div class="meta">
+        <div><b>Voice</b> precise, current, unsentimental</div>
+        <div><b>Best with</b> city/geometry photography and short copy</div>
+        <div><b>Risk</b> the most common register in tech — needs the photography to carry the difference</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== C ========== -->
+  <div class="option" data-choice="dark" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Dark — the same editorial voice, inverted</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Near-black ground, warm off-white type, a sand accent. Black-and-white photographs sit better on dark than on any other ground — they stop being illustrations and start being prints on a wall. The whole page becomes a gallery.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="site C">
+          <div class="hero"><img src="https://picsum.photos/seed/grid/1200/400?grayscale" alt=""><div class="sc"></div>
+            <div class="over"><div class="nav"><span class="nm">Jelle Delporte</span><span class="lk">Work · About</span></div>
+            <div class="hd">I build software, mostly the kind that <em>quietly holds</em> other things up.</div></div>
+          </div>
+          <div class="body">
+            <div class="sech"><span class="l">Selected work</span><span class="l">2023 — 2026</span></div>
+            <div class="cards">
+              <div class="card"><div class="thumb"><div class="hexz" data-hex="dark"></div></div><div class="cb"><div class="ct"><span>Tronk</span><em>2025</em></div><div class="cd">Snake bot on a hex grid, built for a live competition.</div><div class="tg">TypeScript · Search</div></div></div>
+              <div class="card"><div class="thumb"><div class="barz"><span style="height:42%"></span><span style="height:72%"></span><span style="height:54%"></span><span style="height:86%"></span><span style="height:35%"></span></div></div><div class="cb"><div class="ct"><span>Ledger</span><em>2024</em></div><div class="cd">Balances derived from an immutable log, never stored.</div><div class="tg">TypeScript · Domain</div></div></div>
+              <div class="card"><div class="thumb"><div class="linez"><i></i><i style="width:70%"></i><i></i><i style="width:48%"></i><i></i></div></div><div class="cb"><div class="ct"><span>Fieldnote</span><em>2024</em></div><div class="cd">Notes that sync device to device with no server.</div><div class="tg">CRDT · Offline</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swatches"><i style="background:#0f1012"></i><i style="background:#eceae5"></i><i style="background:#d9a45f"></i><small>ink · bone · sand</small></div>
+      <div class="meta">
+        <div><b>Voice</b> quiet, gallery-like, a little cinematic</div>
+        <div><b>Best with</b> every photo you have — dark flatters all of them</div>
+        <div><b>Risk</b> long write-ups are harder to read on dark; screenshots of light UIs punch holes in the page</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:1.4rem">
+  <div class="label">Also worth deciding</div>
+  <p class="subtitle">Whether the site ships <strong>one</strong> of these or supports light <em>and</em> dark via a toggle. Supporting both doubles the decisions on every surface — photo scrims, card borders, screenshot treatment — so it's worth doing only if you actually want it. My advice: pick one, commit, and add the other later if it still nags.</p>
+</div>
+
+<script>
+(function () {
+  var STROKE = { warm: 'rgba(120,112,95,0.30)', cool: 'rgba(90,100,120,0.28)', dark: 'rgba(220,215,205,0.16)' };
+  var TRAIL = { warm: '#6d6455', cool: '#5a6472', dark: '#d9a45f' };
+  function hex(el) {
+    var kind = el.dataset.hex || 'warm';
+    var W = el.clientWidth || 150, H = el.clientHeight || 105, size = 11;
+    if (!W || !H) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var hw = Math.sqrt(3) * size, vh = 1.5 * size;
+    var cols = Math.ceil(W / hw) + 2, rows = Math.ceil(H / vh) + 2;
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%'); svg.style.display = 'block';
+    function c(cc, rr) { return [hw * (cc + (rr % 2 ? 0.5 : 0)) - hw / 2, vh * rr - vh / 2]; }
+    for (var r = 0; r < rows; r++) for (var k = 0; k < cols; k++) {
+      var p = c(k, r), pts = [];
+      for (var i = 0; i < 6; i++) { var a = Math.PI / 180 * (60 * i - 30); pts.push((p[0] + size * Math.cos(a)).toFixed(1) + ',' + (p[1] + size * Math.sin(a)).toFixed(1)); }
+      var poly = document.createElementNS(NS, 'polygon');
+      poly.setAttribute('points', pts.join(' ')); poly.setAttribute('fill', 'none');
+      poly.setAttribute('stroke', STROKE[kind]); poly.setAttribute('stroke-width', '1');
+      svg.appendChild(poly);
+    }
+    var path = document.createElementNS(NS, 'path');
+    var pts = [c(1, 3), c(2, 3), c(2, 2), c(3, 1), c(4, 1), c(5, 2), c(5, 3)].map(function (p) { return p[0] + ',' + p[1]; });
+    path.setAttribute('d', 'M' + pts.join(' L')); path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', TRAIL[kind]); path.setAttribute('stroke-width', '2.2');
+    path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(path);
+    el.innerHTML = ''; el.appendChild(svg);
+  }
+  function init() { document.querySelectorAll('[data-hex]').forEach(hex); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 60);
+})();
+</script>

@@ -1,0 +1,198 @@
+<h2>A, with images — three ways</h2>
+<p class="subtitle">All three keep A's paper-warm calm and serif type. What differs is <em>what the imagery is for</em>: documenting the work, setting a mood, or being the work. The third is my attempt at B's "this was engineered" without the terminal costume. <strong>A1 and A3 are live — hover the rows in A1, and A3 animates on its own.</strong></p>
+
+<style>
+  .m { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .m .bar { height: 22px; background: #d8d8dc; display: flex; align-items: center; gap: 5px; padding: 0 9px; }
+  .m .bar i { width: 8px; height: 8px; border-radius: 50%; background: #b6b6bb; display: block; }
+  .option .content { width: 100%; }
+  .meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .meta div { font-size: 0.78rem; color: var(--text-secondary); }
+  .meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .paper { background: #faf8f4; color: #1a1a17; font-family: Georgia, 'Times New Roman', serif; }
+  .mono { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+
+  /* ============ A1 — Plates ============ */
+  .a1 { padding: 24px 30px 26px; }
+  .a1 .top { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e3ded2; padding-bottom: 9px; margin-bottom: 20px; }
+  .a1 .top .nm { font-size: 14px; }
+  .a1 .top .nv { font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8577; display: flex; gap: 14px; }
+  .a1 .split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 26px; align-items: start; }
+  .a1 .row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 11px 0; border-bottom: 1px solid #e9e4d9; cursor: default; transition: padding-left 0.18s ease; }
+  .a1 .row:first-child { border-top: 1px solid #e9e4d9; }
+  .a1 .row:hover { padding-left: 6px; }
+  .a1 .num { font-size: 9px; color: #b3ac9b; padding-top: 3px; }
+  .a1 .ttl { font-size: 13.5px; }
+  .a1 .dsc { font-size: 9.5px; color: #8a8577; letter-spacing: 0.04em; margin-top: 3px; }
+  .a1 .row:hover .ttl { color: #a8624a; }
+  .a1 .stage { position: relative; height: 172px; background: #f1ece1; border: 1px solid #e3ded2; }
+  .a1 .im { position: absolute; inset: 0; opacity: 0; transition: opacity 0.25s ease; padding: 14px; }
+  .a1 .im.d { opacity: 1; }
+  .a1:has(.r1:hover) .im { opacity: 0; } .a1:has(.r1:hover) .i1 { opacity: 1; }
+  .a1:has(.r2:hover) .im { opacity: 0; } .a1:has(.r2:hover) .i2 { opacity: 1; }
+  .a1:has(.r3:hover) .im { opacity: 0; } .a1:has(.r3:hover) .i3 { opacity: 1; }
+  .a1 .cap { position: absolute; bottom: -18px; left: 0; font-size: 9px; color: #a49d8c; letter-spacing: 0.06em; }
+  /* fake screenshots */
+  .shot { width: 100%; height: 100%; background: #fff; border: 1px solid #e0dacd; padding: 10px 12px; font-family: ui-monospace, Menlo, monospace; }
+  .shot .sh { font-size: 8px; color: #a09889; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid #eee7d9; padding-bottom: 5px; margin-bottom: 8px; }
+  .bars { display: flex; align-items: flex-end; gap: 6px; height: 88px; }
+  .bars span { flex: 1; background: #d9c9a8; }
+  .bars span:nth-child(2n) { background: #a8624a; opacity: 0.75; }
+  .lines div { height: 7px; background: #efe9dc; margin-bottom: 6px; border-radius: 1px; }
+  .lines div:nth-child(3) { width: 62%; background: #e3d3b6; }
+  .lines div:nth-child(5) { width: 40%; }
+  .nodes { position: relative; height: 96px; }
+  .nodes b { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: #a8624a; }
+  .nodes u { position: absolute; height: 1px; background: #d8cdb6; transform-origin: left center; }
+
+  /* ============ A2 — Scenic ground ============ */
+  .a2 { position: relative; }
+  .a2 .plate { height: 186px; background-image: linear-gradient(to bottom, rgba(20,18,14,0.15), rgba(20,18,14,0.62)), url('https://picsum.photos/seed/ridgeline/1400/700?grayscale'); background-size: cover; background-position: center 40%; position: relative; }
+  .a2 .over { position: absolute; inset: 0; padding: 20px 30px; display: flex; flex-direction: column; justify-content: space-between; color: #f6f2ea; }
+  .a2 .over .nv { display: flex; justify-content: space-between; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; }
+  .a2 .over .hd { font-size: 30px; line-height: 1.2; max-width: 20ch; text-shadow: 0 1px 24px rgba(0,0,0,0.4); }
+  .a2 .over .hd em { font-style: italic; }
+  .a2 .below { padding: 20px 30px 24px; }
+  .a2 .row { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #e9e4d9; }
+  .a2 .row:first-child { border-top: 1px solid #e9e4d9; }
+  .a2 .num { font-size: 9px; color: #b3ac9b; }
+  .a2 .ttl { font-size: 13.5px; }
+  .a2 .yr { font-size: 9.5px; color: #8a8577; }
+
+  /* ============ A3 — The built object ============ */
+  .a3 { padding: 24px 30px 26px; }
+  .a3 .top { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e3ded2; padding-bottom: 9px; margin-bottom: 22px; }
+  .a3 .top .nm { font-size: 14px; }
+  .a3 .top .nv { font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8577; display: flex; gap: 14px; }
+  .a3 .g { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+  .a3 .lede { font-size: 24px; line-height: 1.34; max-width: 22ch; }
+  .a3 .lede em { font-style: italic; color: #a8624a; }
+  .a3 .note { font-size: 9.5px; color: #8a8577; letter-spacing: 0.05em; margin-top: 16px; text-transform: uppercase; }
+  .a3 svg .lk { stroke: #cfc4ac; stroke-width: 1; fill: none; stroke-dasharray: 3 3; animation: drift 6s linear infinite; }
+  .a3 svg .nd { fill: #faf8f4; stroke: #1a1a17; stroke-width: 1.1; }
+  .a3 svg .nd.hot { fill: #a8624a; stroke: #a8624a; }
+  .a3 svg .pulse { fill: #a8624a; animation: run 4.2s ease-in-out infinite; }
+  .a3 svg .p2 { animation-delay: 1.4s; }
+  .a3 svg .p3 { animation-delay: 2.8s; }
+  .a3 svg text { font-family: ui-monospace, Menlo, monospace; font-size: 7px; fill: #9a9282; }
+  @keyframes drift { to { stroke-dashoffset: -24; } }
+  @keyframes run { 0% { opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { opacity: 0; } }
+  .a3 .foot { border-top: 1px solid #e9e4d9; margin-top: 20px; padding-top: 10px; display: flex; gap: 22px; font-size: 10px; color: #8a8577; }
+  .a3 .foot b { color: #1a1a17; font-weight: normal; font-family: Georgia, serif; font-size: 12px; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <!-- ================= A1 ================= -->
+  <div class="option" data-choice="a1" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Plates — the index stays, the work appears beside it</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">The typographic index from A on the left; hovering a line brings its screenshot up in the plate on the right. Images document the work and nothing else. <em>Hover the rows.</em></p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper a1">
+          <div class="top"><div class="nm">Jelle Delporte</div><div class="nv mono"><span>Work</span><span>Writing</span><span>About</span></div></div>
+          <div class="split">
+            <div>
+              <div class="row r1"><div class="num mono">01</div><div><div class="ttl">Ledger</div><div class="dsc mono">DOUBLE-ENTRY ENGINE · TS</div></div></div>
+              <div class="row r2"><div class="num mono">02</div><div><div class="ttl">Fieldnote</div><div class="dsc mono">OFFLINE-FIRST SYNC · CRDT</div></div></div>
+              <div class="row r3"><div class="num mono">03</div><div><div class="ttl">Pathfinder</div><div class="dsc mono">ROUTING SANDBOX · CANVAS</div></div></div>
+            </div>
+            <div class="stage">
+              <div class="im i1 d"><div class="shot"><div class="sh">ledger — balances</div><div class="bars"><span style="height:40%"></span><span style="height:72%"></span><span style="height:55%"></span><span style="height:88%"></span><span style="height:34%"></span><span style="height:64%"></span><span style="height:48%"></span></div></div></div>
+              <div class="im i2"><div class="shot"><div class="sh">fieldnote — editor</div><div class="lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+              <div class="im i3"><div class="shot"><div class="sh">pathfinder — graph</div><div class="nodes">
+                <u style="left:14px;top:22px;width:70px;transform:rotate(24deg)"></u>
+                <u style="left:14px;top:22px;width:86px;transform:rotate(-8deg)"></u>
+                <u style="left:96px;top:14px;width:64px;transform:rotate(38deg)"></u>
+                <u style="left:80px;top:52px;width:78px;transform:rotate(-16deg)"></u>
+                <b style="left:10px;top:18px"></b><b style="left:92px;top:10px"></b><b style="left:76px;top:48px"></b><b style="left:152px;top:36px"></b><b style="left:150px;top:74px"></b>
+              </div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Images are</b> evidence</div>
+        <div><b>Needs</b> screenshots worth showing — dictates real polish on the projects</div>
+        <div><b>Degrades</b> gracefully: a project with no image is just a line</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= A2 ================= -->
+  <div class="option" data-choice="a2" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>Scenic ground — one photograph carries the mood</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">A single large muted photograph sets the register; type sits over it, and the index continues on paper below. The image says something about you rather than about the code.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper a2">
+          <div class="plate">
+            <div class="over">
+              <div class="nv mono"><span>Jelle Delporte</span><span>Work · Writing · About</span></div>
+              <div class="hd">I build software, mostly the kind that <em>quietly holds</em> other things up.</div>
+            </div>
+          </div>
+          <div class="below">
+            <div class="row"><div class="num mono">01</div><div class="ttl">Ledger — double-entry engine in TypeScript</div><div class="yr mono">2025</div></div>
+            <div class="row"><div class="num mono">02</div><div class="ttl">Fieldnote — offline-first note sync</div><div class="yr mono">2024</div></div>
+            <div class="row"><div class="num mono">03</div><div class="ttl">Pathfinder — visual routing sandbox</div><div class="yr mono">2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Images are</b> atmosphere</div>
+        <div><b>Needs</b> photographs that are actually yours — stock reads as stock instantly</div>
+        <div><b>Risk</b> pretty but generic; the photo has to mean something</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= A3 ================= -->
+  <div class="option" data-choice="a3" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>The built object — B's engineering, without the costume</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Same quiet page, but the hero is a live thing you made rather than a picture of one: a small generative/interactive piece that runs in the corner of the page. Proof of craft by demonstration instead of by monospace font.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper a3">
+          <div class="top"><div class="nm">Jelle Delporte</div><div class="nv mono"><span>Work</span><span>Writing</span><span>About</span></div></div>
+          <div class="g">
+            <div>
+              <div class="lede">I build software, mostly the kind that <em>quietly holds</em> other things up.</div>
+              <div class="note mono">The diagram is live — it's routing packets</div>
+            </div>
+            <div>
+              <svg viewBox="0 0 260 150" width="100%" height="150">
+                <path class="lk" d="M30 110 L95 40" /><path class="lk" d="M30 110 L110 118" />
+                <path class="lk" d="M95 40 L175 62" /><path class="lk" d="M110 118 L175 62" />
+                <path class="lk" d="M175 62 L232 30" /><path class="lk" d="M175 62 L228 122" />
+                <path class="lk" d="M110 118 L228 122" />
+                <circle class="pulse" r="3"><animateMotion dur="4.2s" repeatCount="indefinite" path="M30 110 L95 40 L175 62 L232 30" /></circle>
+                <circle class="pulse p2" r="3"><animateMotion dur="4.2s" begin="1.4s" repeatCount="indefinite" path="M30 110 L110 118 L175 62 L228 122" /></circle>
+                <circle class="pulse p3" r="3"><animateMotion dur="4.2s" begin="2.8s" repeatCount="indefinite" path="M110 118 L228 122" /></circle>
+                <circle class="nd hot" cx="30" cy="110" r="5" /><circle class="nd" cx="95" cy="40" r="4.5" />
+                <circle class="nd" cx="110" cy="118" r="4.5" /><circle class="nd" cx="175" cy="62" r="5.5" />
+                <circle class="nd" cx="232" cy="30" r="4" /><circle class="nd" cx="228" cy="122" r="4" />
+                <text x="20" y="128">origin</text><text x="186" y="58">router</text><text x="212" y="140">sink</text>
+              </svg>
+            </div>
+          </div>
+          <div class="foot">
+            <div><b>Ledger</b> &nbsp;2025</div><div><b>Fieldnote</b> &nbsp;2024</div><div><b>Pathfinder</b> &nbsp;2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Images are</b> generated — the site makes them</div>
+        <div><b>Answers</b> "it's engineered" without a fake prompt</div>
+        <div><b>Cost</b> the one interactive piece has to be genuinely good, or skip it</div>
+      </div>
+    </div>
+  </div>
+
+</div>

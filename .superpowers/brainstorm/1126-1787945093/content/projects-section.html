@@ -1,0 +1,263 @@
+<h2>Where the moving part lives: down in the work</h2>
+<p class="subtitle">Header stays a clean photograph in all three — you're looking at the <em>scroll down</em>, with a sliver of hero at the top for context. What differs is how deep the algorithm goes: a ground the list sits on, a mark per project, or one loud band. All live.</p>
+
+<style>
+  .m { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .m .bar { height: 22px; background: #d8d8dc; display: flex; align-items: center; gap: 5px; padding: 0 9px; }
+  .m .bar i { width: 8px; height: 8px; border-radius: 50%; background: #b6b6bb; display: block; }
+  .option .content { width: 100%; }
+  .meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .meta div { font-size: 0.78rem; color: var(--text-secondary); }
+  .meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .paper { background: #faf8f4; color: #1a1a17; font-family: Georgia, 'Times New Roman', serif; }
+  .mono { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+
+  /* shared hero sliver */
+  .sliver { position: relative; height: 74px; overflow: hidden; }
+  .sliver img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .sliver .sc { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,11,9,0.35), rgba(250,248,244,1) 96%); }
+  .sliver .t { position: absolute; left: 26px; bottom: 20px; color: #f4efe6; font-size: 15px; text-shadow: 0 1px 14px rgba(0,0,0,.6); }
+  .sliver .n { position: absolute; right: 26px; top: 14px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #ece6da; opacity: .85; }
+  .sechead { display: flex; justify-content: space-between; align-items: baseline; padding: 0 26px; margin-bottom: 10px; }
+  .sechead .l { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #a49c8a; }
+
+  /* ---------- G1 : board as ground ---------- */
+  .g1 .zone { position: relative; padding: 4px 26px 22px; }
+  .g1 .hexboard { position: absolute; inset: 0; opacity: .95; }
+  .g1 .rows { position: relative; }
+  .g1 .r { display: grid; grid-template-columns: 16px 1fr auto; gap: 13px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(200,192,172,.55); }
+  .g1 .r:first-child { border-top: 1px solid rgba(200,192,172,.55); }
+  .g1 .r .hx { width: 12px; height: 14px; }
+  .g1 .r .hx polygon { fill: #faf8f4; stroke: #c3b9a2; stroke-width: 1.2; }
+  .g1 .r .t { font-size: 14px; }
+  .g1 .r .d { font-size: 9px; letter-spacing: .07em; text-transform: uppercase; color: #948c7a; margin-top: 2px; }
+  .g1 .r .y { font-size: 9.5px; color: #8a8577; }
+  .g1 .r:hover .hx polygon { fill: #c9743f; stroke: #c9743f; }
+  .g1 .r:hover .t { color: #c9743f; }
+
+  /* ---------- G2 : a mark per project ---------- */
+  .g2 .list { padding: 2px 26px 20px; }
+  .g2 .r { display: grid; grid-template-columns: 128px 1fr auto; gap: 20px; align-items: center; padding: 13px 0; border-bottom: 1px solid #e6e0d3; }
+  .g2 .r:first-child { border-top: 1px solid #e6e0d3; }
+  .g2 .cellwrap { height: 62px; background: #f2ede1; border: 1px solid #e3ddcd; position: relative; overflow: hidden; }
+  .g2 .hexboard { position: absolute; inset: 0; }
+  .g2 .t { font-size: 14.5px; }
+  .g2 .d { font-size: 9.5px; color: #8f8775; margin-top: 3px; letter-spacing: .04em; }
+  .g2 .y { font-size: 9.5px; color: #8a8577; }
+  /* generative mark: ledger */
+  .lg { position: absolute; inset: 0; display: flex; align-items: flex-end; gap: 4px; padding: 9px 10px; }
+  .lg span { flex: 1; background: #cdbf9f; animation: bob 3.4s ease-in-out infinite; transform-origin: bottom; }
+  .lg span:nth-child(2n) { background: #c9743f; opacity: .8; }
+  .lg span:nth-child(1){animation-delay:0s;height:38%} .lg span:nth-child(2){animation-delay:.3s;height:64%}
+  .lg span:nth-child(3){animation-delay:.6s;height:46%} .lg span:nth-child(4){animation-delay:.9s;height:78%}
+  .lg span:nth-child(5){animation-delay:1.2s;height:34%} .lg span:nth-child(6){animation-delay:1.5s;height:56%}
+  @keyframes bob { 0%,100% { transform: scaleY(1) } 50% { transform: scaleY(.55) } }
+  /* generative mark: sync */
+  .sy { position: absolute; inset: 0; }
+  .sy path { fill: none; stroke: #cdbf9f; stroke-width: 1.1; }
+  .sy .dot { fill: #c9743f; }
+  .sy .d2 { fill: #a99c80; }
+
+  /* ---------- G3 : one band ---------- */
+  .g3 .band { position: relative; height: 128px; background: #12130f; overflow: hidden; border-top: 1px solid #e3ded2; border-bottom: 1px solid #e3ded2; }
+  .g3 .hexboard { position: absolute; inset: 0; }
+  .g3 .lbl { position: absolute; left: 24px; top: 14px; color: #f0ece2; font-size: 12px; z-index: 2; }
+  .g3 .lbl small { display: block; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #8d8878; margin-top: 4px; font-family: ui-monospace, Menlo, monospace; }
+  .g3 .play { position: absolute; right: 22px; bottom: 16px; z-index: 2; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #12130f; background: #c9743f; padding: 5px 11px; border-radius: 2px; font-family: ui-monospace, Menlo, monospace; }
+  .g3 .list { padding: 16px 26px 20px; }
+  .g3 .r { display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #e9e4d9; }
+  .g3 .r:first-child { border-top: 1px solid #e9e4d9; }
+  .g3 .n { font-size: 9px; color: #b3ac9b; }
+  .g3 .t { font-size: 13.5px; }
+  .g3 .y { font-size: 9.5px; color: #8a8577; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <!-- =============== G1 =============== -->
+  <div class="option" data-choice="ground" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>The board as ground — the work list sits on the grid</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Below the photograph the paper turns into a faint hex field, and trails route slowly behind the project index. The list is unchanged and fully readable; the algorithm is the floor it stands on. <em>Hover a row.</em></p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper g1">
+          <div class="sliver"><img src="https://picsum.photos/seed/lantern/1200/300?grayscale" alt=""><div class="sc"></div><div class="n mono">Jelle Delporte · Work · About</div><div class="t">quietly holds other things up</div></div>
+          <div class="sechead"><span class="l mono">Selected work</span><span class="l mono">2023 — 2025</span></div>
+          <div class="zone">
+            <div class="hexboard" data-size="22" data-mode="light" data-len="20" data-trails="2"></div>
+            <div class="rows">
+              <div class="r"><svg class="hx" viewBox="0 0 20 23"><polygon points="10,1 19,6.5 19,17.5 10,22 1,17.5 1,6.5"/></svg><div><div class="t">Tronk</div><div class="d mono">Hex-grid snake · competition algorithm</div></div><div class="y mono">2025</div></div>
+              <div class="r"><svg class="hx" viewBox="0 0 20 23"><polygon points="10,1 19,6.5 19,17.5 10,22 1,17.5 1,6.5"/></svg><div><div class="t">Ledger</div><div class="d mono">Double-entry engine · TypeScript</div></div><div class="y mono">2024</div></div>
+              <div class="r"><svg class="hx" viewBox="0 0 20 23"><polygon points="10,1 19,6.5 19,17.5 10,22 1,17.5 1,6.5"/></svg><div><div class="t">Fieldnote</div><div class="d mono">Offline-first sync · CRDT</div></div><div class="y mono">2024</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Loudness</b> low — ambient</div>
+        <div><b>Says</b> the whole section is one system</div>
+        <div><b>Risk</b> decorative; the grid isn't doing anything the content needs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== G2 =============== -->
+  <div class="option" data-choice="marks" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>A live mark per project — each one animates what it <em>is</em></h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Every project gets a small generated tile instead of a screenshot: Tronk gets a real board, Ledger gets moving balances, Fieldnote gets two streams converging. Not decoration — each mark is a diagram of that project's idea, and it scales to project #7 without you needing prettier screenshots.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper g2">
+          <div class="sliver"><img src="https://picsum.photos/seed/lantern/1200/300?grayscale" alt=""><div class="sc"></div><div class="n mono">Jelle Delporte · Work · About</div><div class="t">quietly holds other things up</div></div>
+          <div class="sechead"><span class="l mono">Selected work</span><span class="l mono">2023 — 2025</span></div>
+          <div class="list">
+            <div class="r">
+              <div class="cellwrap"><div class="hexboard" data-size="13" data-mode="light" data-len="11" data-trails="2"></div></div>
+              <div><div class="t">Tronk</div><div class="d mono">Hex-grid snake · competition algorithm · TS</div></div><div class="y mono">2025</div>
+            </div>
+            <div class="r">
+              <div class="cellwrap"><div class="lg"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+              <div><div class="t">Ledger</div><div class="d mono">Double-entry engine · TypeScript</div></div><div class="y mono">2024</div>
+            </div>
+            <div class="r">
+              <div class="cellwrap">
+                <svg class="sy" viewBox="0 0 128 62" preserveAspectRatio="none">
+                  <path d="M10 14 C 48 14, 60 31, 118 31" /><path d="M10 48 C 48 48, 60 31, 118 31" />
+                  <circle class="dot" r="3"><animateMotion dur="3.6s" repeatCount="indefinite" path="M10 14 C 48 14, 60 31, 118 31" /></circle>
+                  <circle class="d2" r="2.4"><animateMotion dur="3.6s" begin="1.1s" repeatCount="indefinite" path="M10 48 C 48 48, 60 31, 118 31" /></circle>
+                </svg>
+              </div>
+              <div><div class="t">Fieldnote</div><div class="d mono">Offline-first sync · CRDT</div></div><div class="y mono">2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Loudness</b> medium, distributed</div>
+        <div><b>Says</b> every project has an idea, and here it is</div>
+        <div><b>Cost</b> the most work — one small piece of code per project</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== G3 =============== -->
+  <div class="option" data-choice="band" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>One band — a single loud, playable strip inside the work section</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">The section opens with a full-width dark band running the real Tronk simulation, then the ordinary quiet index follows underneath. One moment of spectacle, clearly attributed to one project, and nothing else on the page has to move.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper g3">
+          <div class="sliver"><img src="https://picsum.photos/seed/lantern/1200/300?grayscale" alt=""><div class="sc"></div><div class="n mono">Jelle Delporte · Work · About</div><div class="t">quietly holds other things up</div></div>
+          <div class="sechead"><span class="l mono">Selected work</span><span class="l mono">2023 — 2025</span></div>
+          <div class="band">
+            <div class="hexboard" data-size="17" data-mode="dark" data-len="22" data-trails="3"></div>
+            <div class="lbl">Tronk<small>Hex-grid snake · my competition bot vs. yours</small></div>
+            <div class="play">Play ▸</div>
+          </div>
+          <div class="list">
+            <div class="r"><div class="n mono">01</div><div class="t">Ledger — double-entry engine in TypeScript</div><div class="y mono">2024</div></div>
+            <div class="r"><div class="n mono">02</div><div class="t">Fieldnote — offline-first note sync</div><div class="y mono">2024</div></div>
+            <div class="r"><div class="n mono">03</div><div class="t">Pathfinder — visual routing sandbox</div><div class="y mono">2023</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Loudness</b> high, but contained</div>
+        <div><b>Says</b> here is the one thing I want you to touch</div>
+        <div><b>Risk</b> the dark band interrupts the paper — it must feel deliberate, not pasted in</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  function build(el) {
+    var size = +(el.dataset.size || 16), mode = el.dataset.mode || 'light',
+        want = +(el.dataset.len || 16), nTrails = +(el.dataset.trails || 2);
+    var W = el.clientWidth || 520, H = el.clientHeight || 160;
+    if (!W || !H) return;
+    var hw = Math.sqrt(3) * size, vh = 1.5 * size;
+    var cols = Math.ceil(W / hw) + 2, rows = Math.ceil(H / vh) + 2;
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%');
+    svg.style.display = 'block';
+    var dark = mode === 'dark';
+    var faint = dark ? 'rgba(255,255,255,0.10)' : 'rgba(150,138,112,0.20)';
+    var accent = '#c9743f', rival = dark ? '#efe9dd' : '#a2937a', third = dark ? '#7fa8a0' : '#8fa9a2';
+    function center(c, r) { return [hw * (c + (r % 2 ? 0.5 : 0)) - hw / 2, vh * r - vh / 2]; }
+    var g = document.createElementNS(NS, 'g');
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+      var p = center(c, r), pts = [];
+      for (var i = 0; i < 6; i++) {
+        var a = Math.PI / 180 * (60 * i - 30);
+        pts.push((p[0] + size * Math.cos(a)).toFixed(1) + ',' + (p[1] + size * Math.sin(a)).toFixed(1));
+      }
+      var poly = document.createElementNS(NS, 'polygon');
+      poly.setAttribute('points', pts.join(' '));
+      poly.setAttribute('fill', 'none'); poly.setAttribute('stroke', faint); poly.setAttribute('stroke-width', '1');
+      g.appendChild(poly);
+    }
+    svg.appendChild(g);
+    function neighbors(c, r) {
+      var odd = r % 2;
+      return odd ? [[c+1,r],[c-1,r],[c+1,r-1],[c,r-1],[c+1,r+1],[c,r+1]]
+                 : [[c+1,r],[c-1,r],[c,r-1],[c-1,r-1],[c,r+1],[c-1,r+1]];
+    }
+    function walk(sc, sr) {
+      var seen = {}, path = [[sc, sr]], cur = [sc, sr];
+      seen[sc + ',' + sr] = 1;
+      for (var i = 0; i < want; i++) {
+        var opts = neighbors(cur[0], cur[1]).filter(function (n) {
+          return n[0] >= 0 && n[0] < cols && n[1] >= 0 && n[1] < rows && !seen[n[0] + ',' + n[1]];
+        });
+        if (!opts.length) break;
+        cur = opts[Math.floor(Math.random() * opts.length)];
+        seen[cur[0] + ',' + cur[1]] = 1; path.push(cur);
+      }
+      return path;
+    }
+    function trail(sc, sr, color, dur, delay, width) {
+      var pts = walk(sc, sr).map(function (n) { var p = center(n[0], n[1]); return p[0] + ',' + p[1]; });
+      if (pts.length < 3) return;
+      var d = 'M' + pts.join(' L');
+      var path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', d); path.setAttribute('fill', 'none'); path.setAttribute('stroke', color);
+      path.setAttribute('stroke-width', width); path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('stroke-linejoin', 'round'); path.setAttribute('opacity', dark ? '0.92' : '0.7');
+      svg.appendChild(path);
+      var L = path.getTotalLength();
+      path.style.strokeDasharray = L + ' ' + L; path.style.strokeDashoffset = L;
+      path.animate([{ strokeDashoffset: L }, { strokeDashoffset: 0, offset: 0.7 }, { strokeDashoffset: -L }],
+        { duration: dur, delay: delay, iterations: Infinity, easing: 'linear' });
+      var head = document.createElementNS(NS, 'circle');
+      head.setAttribute('r', width * 1.5); head.setAttribute('fill', color);
+      svg.appendChild(head);
+      var mo = document.createElementNS(NS, 'animateMotion');
+      mo.setAttribute('dur', (dur * 0.7) / 1000 + 's'); mo.setAttribute('begin', delay / 1000 + 's');
+      mo.setAttribute('repeatCount', 'indefinite'); mo.setAttribute('path', d);
+      mo.setAttribute('calcMode', 'linear');
+      head.appendChild(mo);
+    }
+    var specs = [
+      [1, Math.max(1, Math.floor(rows * 0.72)), accent, 10000, 0, 2.2],
+      [Math.max(1, cols - 2), 1, rival, 10000, 3000, 1.7],
+      [Math.floor(cols / 2), rows - 1, third, 10000, 5800, 1.5]
+    ];
+    for (var k = 0; k < Math.min(nTrails, specs.length); k++) trail.apply(null, specs[k]);
+    el.innerHTML = ''; el.appendChild(svg);
+  }
+  function init() { document.querySelectorAll('.hexboard').forEach(build); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else setTimeout(init, 40);
+})();
+</script>

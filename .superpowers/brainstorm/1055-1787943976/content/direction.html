@@ -1,0 +1,144 @@
+<h2>Three directions for a developer home base</h2>
+<p class="subtitle">Same content in all three — name, a line about you, a handful of projects. Only the personality changes. Click whichever pulls at you (you can click more than one, and "the type from A with the color of C" is a valid answer).</p>
+
+<style>
+  .dir-mock { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .dir-mock .frame-bar { height: 22px; background: #d8d8dc; display: flex; align-items: center; gap: 5px; padding: 0 9px; }
+  .dir-mock .frame-bar i { width: 8px; height: 8px; border-radius: 50%; background: #b6b6bb; display: block; }
+  .option .content { width: 100%; }
+  .dir-meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .dir-meta div { font-size: 0.78rem; color: var(--text-secondary); }
+  .dir-meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+
+  /* ---------- A: Quiet Index ---------- */
+  .a { background: #faf8f4; color: #1a1a17; padding: 26px 34px 22px; font-family: Georgia, 'Times New Roman', serif; }
+  .a .top { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #ddd8cd; padding-bottom: 10px; }
+  .a .name { font-size: 15px; letter-spacing: 0.02em; }
+  .a .nav { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: #8a8577; display: flex; gap: 16px; }
+  .a .lede { font-size: 27px; line-height: 1.32; margin: 26px 0 30px; max-width: 26ch; }
+  .a .lede em { font-style: italic; color: #a8624a; }
+  .a .idx { border-top: 1px solid #e6e1d6; }
+  .a .row { display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #e6e1d6; }
+  .a .num { font-family: ui-monospace, Menlo, monospace; font-size: 9px; color: #b3ac9b; }
+  .a .ttl { font-size: 14px; }
+  .a .yr { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: #8a8577; }
+
+  /* ---------- B: System ---------- */
+  .b { background: #0c0e10; color: #d5dbdd; padding: 24px 30px; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; background-image: linear-gradient(#14181b 1px, transparent 1px), linear-gradient(90deg, #14181b 1px, transparent 1px); background-size: 26px 26px; }
+  .b .bar { display: flex; justify-content: space-between; font-size: 10px; color: #5d6a6d; border-bottom: 1px solid #1e2429; padding-bottom: 8px; letter-spacing: 0.06em; }
+  .b .bar span.on { color: #6ee7a8; }
+  .b .prompt { margin: 22px 0 6px; font-size: 12px; color: #6ee7a8; }
+  .b .h { font-size: 22px; color: #eef4f5; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .b .sub { font-size: 11.5px; color: #7c8a8e; line-height: 1.6; max-width: 46ch; margin-bottom: 22px; }
+  .b .caret { display: inline-block; width: 7px; height: 15px; background: #6ee7a8; transform: translateY(2px); }
+  .b .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .b .cell { border: 1px solid #1e2429; padding: 9px 11px; }
+  .b .cell .t { font-size: 12px; color: #cfe0e3; }
+  .b .cell .d { font-size: 10px; color: #637376; margin-top: 3px; }
+  .b .pill { font-size: 8.5px; color: #6ee7a8; border: 1px solid #23473a; padding: 1px 5px; border-radius: 3px; float: right; }
+
+  /* ---------- C: Bold Graphic ---------- */
+  .c { background: #101014; color: #f2f0ea; padding: 0; font-family: 'Helvetica Neue', Inter, system-ui, sans-serif; }
+  .c .hero { padding: 24px 30px 26px; position: relative; overflow: hidden; }
+  .c .blob { position: absolute; right: -40px; top: -50px; width: 210px; height: 210px; border-radius: 50%; background: #d7ff3e; filter: blur(0px); opacity: 0.92; }
+  .c .navc { display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: #8d8d99; position: relative; z-index: 2; }
+  .c .big { position: relative; z-index: 2; font-size: 46px; line-height: 0.92; font-weight: 800; letter-spacing: -0.035em; margin: 26px 0 10px; text-transform: uppercase; }
+  .c .big span { display: block; }
+  .c .big .out { color: transparent; -webkit-text-stroke: 1.2px #f2f0ea; }
+  .c .tag { position: relative; z-index: 2; font-size: 11.5px; color: #a9a9b6; max-width: 34ch; line-height: 1.55; }
+  .c .strip { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #26262e; }
+  .c .tile { padding: 14px 16px 18px; border-right: 1px solid #26262e; }
+  .c .tile:last-child { border-right: 0; }
+  .c .tile .k { font-size: 9px; color: #d7ff3e; letter-spacing: 0.12em; text-transform: uppercase; }
+  .c .tile .n { font-size: 15px; font-weight: 700; margin-top: 8px; letter-spacing: -0.01em; }
+  .c .tile .s { font-size: 10px; color: #83838f; margin-top: 4px; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Quiet Index — the site as a well-set page</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Serif type, paper-warm background, projects as a numbered index rather than cards. Nothing moves unless you scroll. Ages well; reads as taste rather than effort.</p>
+      <div class="dir-mock">
+        <div class="frame-bar"><i></i><i></i><i></i></div>
+        <div class="a">
+          <div class="top">
+            <div class="name">Jelle Delporte</div>
+            <div class="nav"><span>Work</span><span>Writing</span><span>About</span></div>
+          </div>
+          <div class="lede">I build software, mostly the kind that <em>quietly holds</em> other things up.</div>
+          <div class="idx">
+            <div class="row"><div class="num">01</div><div class="ttl">Ledger — double-entry engine in TypeScript</div><div class="yr">2025</div></div>
+            <div class="row"><div class="num">02</div><div class="ttl">Fieldnote — offline-first note sync</div><div class="yr">2024</div></div>
+            <div class="row"><div class="num">03</div><div class="ttl">Pathfinder — visual routing sandbox</div><div class="yr">2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dir-meta">
+        <div><b>Feels like</b> a good book's colophon</div>
+        <div><b>Risk</b> can read as safe if the writing is thin</div>
+        <div><b>Effort</b> low build, high on wording</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>System — the site as a thing you built</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Monospace, dark, a faint grid. Navigation reads like a prompt; projects are live cells with status. The medium is the argument: you can see it was engineered, not assembled.</p>
+      <div class="dir-mock">
+        <div class="frame-bar"><i></i><i></i><i></i></div>
+        <div class="b">
+          <div class="bar"><span>JELLE.DEV</span><span class="on">● available</span></div>
+          <div class="prompt">~ $ whoami</div>
+          <div class="h">Jelle Delporte<span class="caret"></span></div>
+          <div class="sub">Software engineer. I like systems with sharp edges: type systems, sync protocols, and the unglamorous parts of state.</div>
+          <div class="grid">
+            <div class="cell"><span class="pill">shipped</span><div class="t">ledger</div><div class="d">double-entry engine · ts</div></div>
+            <div class="cell"><span class="pill">wip</span><div class="t">fieldnote</div><div class="d">offline-first sync · crdt</div></div>
+            <div class="cell"><span class="pill">shipped</span><div class="t">pathfinder</div><div class="d">routing sandbox · canvas</div></div>
+            <div class="cell"><span class="pill">archive</span><div class="t">tinyvm</div><div class="d">stack machine · rust</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dir-meta">
+        <div><b>Feels like</b> a tool, not a brochure</div>
+        <div><b>Risk</b> the most-copied dev aesthetic — needs one real idea to escape cliché</div>
+        <div><b>Effort</b> medium; earns its keep only if something is genuinely interactive</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Bold Graphic — the site as a statement</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Oversized display type that runs off the edge, one loud accent colour, hard rules dividing the grid. Confident and memorable at a glance; the projects sit in a strip beneath the shout.</p>
+      <div class="dir-mock">
+        <div class="frame-bar"><i></i><i></i><i></i></div>
+        <div class="c">
+          <div class="hero">
+            <div class="blob"></div>
+            <div class="navc"><span>Jelle Delporte</span><span>work — about — contact</span></div>
+            <div class="big"><span>Builds</span><span class="out">Software</span></div>
+            <div class="tag">Engineer working on developer tools, sync, and the occasional thing nobody asked for.</div>
+          </div>
+          <div class="strip">
+            <div class="tile"><div class="k">01 / engine</div><div class="n">Ledger</div><div class="s">Double-entry, in TS</div></div>
+            <div class="tile"><div class="k">02 / sync</div><div class="n">Fieldnote</div><div class="s">Offline-first notes</div></div>
+            <div class="tile"><div class="k">03 / toy</div><div class="n">Pathfinder</div><div class="s">Routing sandbox</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dir-meta">
+        <div><b>Feels like</b> a studio site / a poster</div>
+        <div><b>Risk</b> loud front page writes a cheque the project pages must cash</div>
+        <div><b>Effort</b> medium-high; typography and spacing have to be exact</div>
+      </div>
+    </div>
+  </div>
+
+</div>

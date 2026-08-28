@@ -1,0 +1,186 @@
+<h2>Structure — three ways to arrange 4 projects</h2>
+<p class="subtitle">Grey boxes on purpose. No colour, no typefaces, no photography treatment — the only variable here is <strong>what lives where and how many pages exist</strong>. Each option shows its sitemap and its home page skeleton.</p>
+
+<style>
+  .wf { --line: #9a9aa2; --fill: #e8e8ec; --fill2: #f4f4f6; }
+  .option .content { width: 100%; }
+  .meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .meta div { font-size: 0.78rem; color: var(--text-secondary); max-width: 30ch; }
+  .meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .pair { display: grid; grid-template-columns: 210px 1fr; gap: 18px; align-items: start; }
+
+  /* sitemap */
+  .map { border: 1px dashed #b9b9c0; border-radius: 8px; padding: 12px; background: var(--bg-secondary); }
+  .map .cap { font-size: 0.62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; }
+  .node { border: 1px solid #a5a5ad; border-radius: 4px; padding: 5px 8px; font-size: 0.72rem; font-family: ui-monospace, Menlo, monospace; background: #eeeef2; color: #2c2c31; }
+  .node.sub { background: #f7f7fa; }
+  .kids { margin-left: 14px; border-left: 1px solid #c9c9d0; padding-left: 10px; margin-top: 6px; display: flex; flex-direction: column; gap: 5px; }
+  .maprow { display: flex; flex-direction: column; gap: 6px; }
+
+  /* wireframe page */
+  .page { border: 1px solid #b9b9c0; border-radius: 8px; background: #fdfdfe; overflow: hidden; }
+  .page .strip { height: 20px; background: #ececf0; border-bottom: 1px solid #dcdce2; display: flex; align-items: center; padding: 0 8px; gap: 6px; }
+  .page .strip u { height: 5px; width: 34px; background: #c3c3ca; display: block; border-radius: 2px; text-decoration: none; }
+  .page .strip u.wide { width: 58px; }
+  .page .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 9px; }
+  .blk { background: var(--fill, #e8e8ec); border: 1px solid #d3d3d9; border-radius: 3px; position: relative; }
+  .blk .tagline { position: absolute; left: 7px; top: 5px; font-size: 0.6rem; letter-spacing: .09em; text-transform: uppercase; color: #71717a; font-family: ui-monospace, Menlo, monospace; }
+  .blk.light { background: #f5f5f8; }
+  .blk.photo { background: repeating-linear-gradient(45deg, #dedee4 0 6px, #e9e9ee 6px 12px); }
+  .txt { display: flex; flex-direction: column; gap: 4px; padding: 20px 8px 8px; }
+  .txt i { display: block; height: 6px; background: #cfcfd6; border-radius: 2px; }
+  .txt i.w1 { width: 78%; } .txt i.w2 { width: 54%; } .txt i.w3 { width: 88%; } .txt i.w4 { width: 36%; }
+  .listrow { display: grid; grid-template-columns: 18px 1fr 34px; gap: 8px; align-items: center; padding: 8px 8px; border-bottom: 1px solid #e2e2e8; }
+  .listrow:last-child { border-bottom: 0; }
+  .listrow u { height: 6px; background: #cfcfd6; display: block; border-radius: 2px; text-decoration: none; }
+  .listrow .n { height: 6px; background: #dcdce2; }
+  .listrow.soon u { background: #e4e4ea; }
+  .listrow.soon .badge { font-size: 0.55rem; font-family: ui-monospace, Menlo, monospace; color: #8a8a93; letter-spacing: .06em; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .h { font-size: 0.62rem; letter-spacing: .09em; text-transform: uppercase; color: #8a8a93; font-family: ui-monospace, Menlo, monospace; margin-bottom: 2px; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <!-- ============ S1 ============ -->
+  <div class="option" data-choice="home-is-index" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Home <em>is</em> the index — one landing, four entries, deep pages behind them</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">No separate /work page, because with four projects it would be a page containing four lines. The home page is: who you are in two sentences, then the work, then a short about + contact foot. Each project links to a full page.</p>
+      <div class="pair">
+        <div class="map">
+          <div class="cap">Sitemap · 3 templates</div>
+          <div class="maprow">
+            <div class="node">/ &nbsp;home + work list</div>
+            <div class="kids">
+              <div class="node sub">/work/tronk</div>
+              <div class="node sub">/work/&lt;b&gt;</div>
+              <div class="node sub">/work/&lt;c&gt;</div>
+            </div>
+            <div class="node">/about</div>
+          </div>
+        </div>
+        <div class="page wf">
+          <div class="strip"><u class="wide"></u><span style="flex:1"></span><u></u><u></u></div>
+          <div class="body">
+            <div class="blk photo" style="height:74px"><span class="tagline">Hero — photograph + statement</span></div>
+            <div>
+              <div class="h">Work</div>
+              <div class="blk light">
+                <div class="listrow"><div class="n"></div><u style="width:70%"></u><u style="width:100%;background:#dcdce2"></u></div>
+                <div class="listrow"><div class="n"></div><u style="width:58%"></u><u style="width:100%;background:#dcdce2"></u></div>
+                <div class="listrow"><div class="n"></div><u style="width:64%"></u><u style="width:100%;background:#dcdce2"></u></div>
+                <div class="listrow soon"><div class="n"></div><u style="width:40%"></u><span class="badge">SOON</span></div>
+              </div>
+            </div>
+            <div class="blk light" style="height:52px"><span class="tagline">About, short — + contact</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Pages</b> 1 landing + 3 project pages + about</div>
+        <div><b>Wins</b> nothing is one click further than it needs to be; the work is the first thing after the name</div>
+        <div><b>Costs</b> home page can't also be a strong "front door" — it has a job already</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ S2 ============ -->
+  <div class="option" data-choice="front-door" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>Front door + destination — home is a statement, /work is the catalogue</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Home is short and atmospheric: photograph, who you are, two featured projects, a way in. The full index lives at /work and has room to grow past four without redesigning the home page.</p>
+      <div class="pair">
+        <div class="map">
+          <div class="cap">Sitemap · 4 templates</div>
+          <div class="maprow">
+            <div class="node">/ &nbsp;home (statement)</div>
+            <div class="node">/work &nbsp;index</div>
+            <div class="kids">
+              <div class="node sub">/work/tronk</div>
+              <div class="node sub">/work/&lt;b&gt;</div>
+              <div class="node sub">/work/&lt;c&gt;</div>
+            </div>
+            <div class="node">/about</div>
+          </div>
+        </div>
+        <div class="page wf">
+          <div class="strip"><u class="wide"></u><span style="flex:1"></span><u></u><u></u><u></u></div>
+          <div class="body">
+            <div class="blk photo" style="height:96px"><span class="tagline">Hero — photograph, large, statement over it</span></div>
+            <div>
+              <div class="h">Featured — 2 only</div>
+              <div class="twocol">
+                <div class="blk light" style="height:56px"><span class="tagline">Project A</span></div>
+                <div class="blk light" style="height:56px"><span class="tagline">Project B</span></div>
+              </div>
+            </div>
+            <div class="blk" style="height:22px;background:#eeeef2"><span class="tagline">→ See all work</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Pages</b> home + work index + 3 project pages + about</div>
+        <div><b>Wins</b> the home page gets to be purely about tone; scales if you ship 10 projects</div>
+        <div><b>Costs</b> an extra click to the thing people came for, and /work holds four lines today</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ S3 ============ -->
+  <div class="option" data-choice="single-scroll" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>One page, no navigation — everything is a scroll</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Hero, work, about, contact stacked on a single document; nav links are anchors. Projects get a paragraph each inline rather than a page of their own — deep write-ups either don't exist or link out to the repo/README.</p>
+      <div class="pair">
+        <div class="map">
+          <div class="cap">Sitemap · 1 template</div>
+          <div class="maprow">
+            <div class="node">/ &nbsp;everything</div>
+            <div class="kids">
+              <div class="node sub">#work</div>
+              <div class="node sub">#about</div>
+              <div class="node sub">#contact</div>
+            </div>
+          </div>
+        </div>
+        <div class="page wf">
+          <div class="strip"><u class="wide"></u><span style="flex:1"></span><u></u><u></u><u></u></div>
+          <div class="body">
+            <div class="blk photo" style="height:60px"><span class="tagline">Hero</span></div>
+            <div class="blk light" style="height:46px"><span class="tagline">Project 1 — inline write-up</span></div>
+            <div class="blk light" style="height:46px"><span class="tagline">Project 2 — inline write-up</span></div>
+            <div class="blk light" style="height:46px"><span class="tagline">Project 3 — inline</span></div>
+            <div class="blk" style="height:26px;background:#f0f0f4"><span class="tagline">About + contact</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Pages</b> one</div>
+        <div><b>Wins</b> simplest thing that could work; no routing, no build step needed at all</div>
+        <div><b>Costs</b> no room to write properly about a project, and nothing is linkable on its own</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:1.6rem">
+  <div class="label">The part that matters more than the layout</div>
+  <p class="subtitle" style="margin-bottom:0.7rem">Whichever you pick, the project page is where the site earns its keep — and it wants a fixed spine so all four read consistently and you can write a new one in an evening. Rough proposal, tell me what's wrong with it:</p>
+  <div class="page wf" style="max-width:560px">
+    <div class="strip"><u class="wide"></u><span style="flex:1"></span><u></u><u></u></div>
+    <div class="body">
+      <div class="blk light" style="height:44px"><span class="tagline">Title · year · stack · links (repo, live, writeup)</span></div>
+      <div class="blk photo" style="height:60px"><span class="tagline">One image or the live thing itself</span></div>
+      <div class="blk light" style="height:34px"><span class="tagline">What it is — 2 sentences</span></div>
+      <div class="blk light" style="height:34px"><span class="tagline">The interesting problem — why it wasn't trivial</span></div>
+      <div class="blk light" style="height:34px"><span class="tagline">How you solved it — the actual engineering</span></div>
+      <div class="blk light" style="height:26px"><span class="tagline">What you'd do differently</span></div>
+      <div class="blk" style="height:20px;background:#f0f0f4"><span class="tagline">← next / previous project</span></div>
+    </div>
+  </div>
+</div>

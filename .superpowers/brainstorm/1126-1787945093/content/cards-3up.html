@@ -1,0 +1,179 @@
+<h2>Three across — and what happens to the fourth</h2>
+<p class="subtitle">Screenshot-led cards, narrowed to a 3-column grid. Four projects into three columns leaves one orphan, so the real question is what row two does. Note the cards are now narrow enough that the description gets <strong>one line, ~12 words</strong> — the prose has to shrink with them. <em>Hover the cards.</em></p>
+
+<style>
+  .m { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .m .bar { height: 22px; background: #d8d8dc; display: flex; align-items: center; gap: 5px; padding: 0 9px; }
+  .m .bar i { width: 8px; height: 8px; border-radius: 50%; background: #b6b6bb; display: block; }
+  .option .content { width: 100%; }
+  .meta { display: flex; gap: 1.25rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .meta div { font-size: 0.78rem; color: var(--text-secondary); max-width: 34ch; }
+  .meta b { color: var(--text-primary); font-weight: 600; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .paper { background: #faf8f4; color: #1a1a17; font-family: Georgia, 'Times New Roman', serif; padding: 18px 20px 22px; }
+  .mono { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .sechead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 13px; }
+  .sechead .l { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #a49c8a; }
+  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tags span { font-size: 8px; letter-spacing: .06em; text-transform: uppercase; color: #8d8574; border: 1px solid #ddd6c6; padding: 1px 5px; border-radius: 2px; font-family: ui-monospace, Menlo, monospace; }
+  .soonbadge { font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: #97907f; font-family: ui-monospace, Menlo, monospace; border: 1px dashed #cdc5b2; padding: 2px 7px; border-radius: 2px; }
+
+  /* card */
+  .card { border: 1px solid #e3ded2; background: #fdfbf7; overflow: hidden; cursor: pointer; transition: border-color .18s, transform .18s; display: flex; flex-direction: column; }
+  .card:hover { border-color: #a89e88; transform: translateY(-2px); }
+  .thumb { position: relative; aspect-ratio: 4 / 3; border-bottom: 1px solid #e9e4d9; filter: grayscale(1); background: #efeae0; }
+  .cbody { padding: 9px 10px 11px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .ct { font-size: 13.5px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+  .ct em { font-style: normal; font-size: 9px; color: #8a8577; font-family: ui-monospace, Menlo, monospace; flex-shrink: 0; }
+  .cd { font-size: 10.5px; color: #6f6a5d; line-height: 1.45; }
+  .card.soon { background: repeating-linear-gradient(45deg, #f7f4ec 0 8px, #faf8f4 8px 16px); border-style: dashed; }
+  .card.soon .ct span:first-child { color: #a9a293; }
+  .card.soon .thumb { background: none; display: flex; align-items: center; justify-content: center; border-bottom-style: dashed; }
+
+  /* fake screenshots */
+  .shot { position: absolute; inset: 0; }
+  .hd { position: absolute; left: 8px; top: 7px; font-size: 7px; letter-spacing: .1em; text-transform: uppercase; color: #a09889; font-family: ui-monospace, Menlo, monospace; }
+  .barz { position: absolute; left: 9px; right: 9px; bottom: 9px; display: flex; align-items: flex-end; gap: 3px; height: 56%; }
+  .barz span { flex: 1; background: #c9c2b2; } .barz span:nth-child(2n) { background: #a49b88; }
+  .linez { position: absolute; left: 9px; right: 9px; bottom: 9px; }
+  .linez i { display: block; height: 4px; background: #ded7c8; margin-bottom: 4px; }
+  .linez i:nth-child(3) { width: 58%; } .linez i:nth-child(5) { width: 34%; }
+  .hexz { position: absolute; inset: 0; }
+
+  /* B: wide strip */
+  .strip { margin-top: 12px; border: 1px dashed #d8d0be; background: repeating-linear-gradient(45deg,#f7f4ec 0 8px,#faf8f4 8px 16px); padding: 11px 14px; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; cursor: pointer; }
+  .strip .lbl { font-size: 13px; color: #a9a293; }
+  .strip .dsc { font-size: 10.5px; color: #7d7768; }
+
+  /* C: featured */
+  .gfeat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .gfeat .card.big { grid-column: span 2; }
+  .gfeat .card.big .thumb { aspect-ratio: 16 / 7; }
+  .gfeat .card.big .ct { font-size: 17px; }
+  .gfeat .card.big .cd { font-size: 11.5px; }
+</style>
+
+<div class="options" data-multiselect>
+
+  <!-- ============ A ============ -->
+  <div class="option" data-choice="wrap" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Natural wrap — the fourth card just sits there</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Four equal cards, three per row, the fourth alone on row two. No cleverness. It reads as an honest list that happens to have four things in it, and the day you add a fifth the grid heals itself.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper">
+          <div class="sechead"><span class="l mono">Selected work</span><span class="l mono">2023 — 2026</span></div>
+          <div class="g3">
+            <div class="card"><div class="thumb"><div class="shot"><div class="hexz" data-hex="1"></div><div class="hd">tronk</div></div></div><div class="cbody"><div class="ct"><span>Tronk</span><em>2025</em></div><div class="cd">Snake bot on a hex grid, built for a live competition.</div><div class="tags"><span>TypeScript</span><span>Search</span></div></div></div>
+            <div class="card"><div class="thumb"><div class="shot"><div class="hd">ledger</div><div class="barz"><span style="height:40%"></span><span style="height:70%"></span><span style="height:52%"></span><span style="height:86%"></span><span style="height:33%"></span><span style="height:61%"></span></div></div></div><div class="cbody"><div class="ct"><span>Ledger</span><em>2024</em></div><div class="cd">Double-entry engine where balances are derived, never stored.</div><div class="tags"><span>TypeScript</span><span>Domain</span></div></div></div>
+            <div class="card"><div class="thumb"><div class="shot"><div class="hd">fieldnote</div><div class="linez"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="cbody"><div class="ct"><span>Fieldnote</span><em>2024</em></div><div class="cd">Notes that sync device to device with no server involved.</div><div class="tags"><span>CRDT</span><span>Offline</span></div></div></div>
+            <div class="card soon"><div class="thumb"><span class="soonbadge">In progress</span></div><div class="cbody"><div class="ct"><span>Scheduler</span><em>2026</em></div><div class="cd">A cron-like runner that survives restarts. Listed while unfinished.</div><div class="tags"><span>Rust</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Wins</b> zero special cases; adding project five costs nothing</div>
+        <div><b>Costs</b> two empty cells on row two — some people find that untidy</div>
+        <div><b>Note</b> the in-progress card is the orphan, which is arguably the right one to be alone</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ B ============ -->
+  <div class="option" data-choice="strip" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>Three finished + a full-width strip for what's coming</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">The grid holds exactly the three shipped projects, and the unfinished one becomes a slim full-width bar underneath — a different kind of object, because it <em>is</em> a different kind of thing. No empty cells, and the distinction between "done" and "in progress" becomes structural rather than a badge.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper">
+          <div class="sechead"><span class="l mono">Selected work</span><span class="l mono">2023 — 2025</span></div>
+          <div class="g3">
+            <div class="card"><div class="thumb"><div class="shot"><div class="hexz" data-hex="1"></div><div class="hd">tronk</div></div></div><div class="cbody"><div class="ct"><span>Tronk</span><em>2025</em></div><div class="cd">Snake bot on a hex grid, built for a live competition.</div><div class="tags"><span>TypeScript</span><span>Search</span></div></div></div>
+            <div class="card"><div class="thumb"><div class="shot"><div class="hd">ledger</div><div class="barz"><span style="height:40%"></span><span style="height:70%"></span><span style="height:52%"></span><span style="height:86%"></span><span style="height:33%"></span><span style="height:61%"></span></div></div></div><div class="cbody"><div class="ct"><span>Ledger</span><em>2024</em></div><div class="cd">Double-entry engine where balances are derived, never stored.</div><div class="tags"><span>TypeScript</span><span>Domain</span></div></div></div>
+            <div class="card"><div class="thumb"><div class="shot"><div class="hd">fieldnote</div><div class="linez"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="cbody"><div class="ct"><span>Fieldnote</span><em>2024</em></div><div class="cd">Notes that sync device to device with no server involved.</div><div class="tags"><span>CRDT</span><span>Offline</span></div></div></div>
+          </div>
+          <div class="strip">
+            <span class="soonbadge">In progress</span>
+            <div><span class="lbl">Scheduler</span> <span class="dsc">— a cron-like runner that survives restarts. Shipping 2026.</span></div>
+            <span class="mono" style="font-size:9px;color:#a29b8a">follow ↗</span>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Wins</b> tidy grid; unfinished work is honestly marked as a different category</div>
+        <div><b>Costs</b> a second layout to maintain, and the strip needs a purpose (link to repo? notify?)</div>
+        <div><b>Breaks</b> when you have two in-progress things, or five finished ones</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ C ============ -->
+  <div class="option" data-choice="featured" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>One featured card, double width — hierarchy inside the grid</h3>
+      <p class="subtitle" style="margin-bottom:0.85rem">Still a 3-column grid, but your strongest project spans two columns with a wider image, and the remaining three fill the rest. Four cards, no orphan, and the page states an opinion about which project matters most.</p>
+      <div class="m">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="paper">
+          <div class="sechead"><span class="l mono">Selected work</span><span class="l mono">2023 — 2026</span></div>
+          <div class="gfeat">
+            <div class="card big"><div class="thumb"><div class="shot"><div class="hexz" data-hex="1"></div><div class="hd">tronk — live board</div></div></div><div class="cbody"><div class="ct"><span>Tronk</span><em>2025</em></div><div class="cd">A bot for multiplayer snake on a hexagonal grid, written for a competition — most of the work was cheap lookahead under a move deadline.</div><div class="tags"><span>TypeScript</span><span>Search</span><span>Playable</span></div></div></div>
+            <div class="card"><div class="thumb"><div class="shot"><div class="hd">ledger</div><div class="barz"><span style="height:40%"></span><span style="height:70%"></span><span style="height:52%"></span><span style="height:86%"></span><span style="height:33%"></span><span style="height:61%"></span></div></div></div><div class="cbody"><div class="ct"><span>Ledger</span><em>2024</em></div><div class="cd">Double-entry engine, balances derived not stored.</div><div class="tags"><span>TypeScript</span></div></div></div>
+            <div class="card"><div class="thumb"><div class="shot"><div class="hd">fieldnote</div><div class="linez"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="cbody"><div class="ct"><span>Fieldnote</span><em>2024</em></div><div class="cd">Notes that sync with no server involved.</div><div class="tags"><span>CRDT</span></div></div></div>
+            <div class="card soon"><div class="thumb"><span class="soonbadge">In progress</span></div><div class="cbody"><div class="ct"><span>Scheduler</span><em>2026</em></div><div class="cd">A cron-like runner that survives restarts.</div><div class="tags"><span>Rust</span></div></div></div>
+            <div class="card" style="visibility:hidden"></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><b>Wins</b> no orphan, and the eye lands on your best work first</div>
+        <div><b>Costs</b> you must be willing to rank your own projects</div>
+        <div><b>Watch</b> the featured card needs a genuinely better image — a stretched thumbnail looks worse, not bigger</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:1.5rem">
+  <div class="label">What narrowing costs</div>
+  <p class="subtitle">At 3-up on a ~1100px page each card is roughly 340px wide. That's room for a title, one line of description (about 12 words), and two tags — no more. If a project needs three sentences to be interesting, that sentence has to live on its project page, and the card's job becomes getting the click rather than explaining. Worth knowing before you write the copy.</p>
+</div>
+
+<script>
+(function () {
+  function hex(el) {
+    var W = el.clientWidth || 160, H = el.clientHeight || 110, size = 12;
+    if (!W || !H) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var hw = Math.sqrt(3) * size, vh = 1.5 * size;
+    var cols = Math.ceil(W / hw) + 2, rows = Math.ceil(H / vh) + 2;
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%'); svg.style.display = 'block';
+    function c(cc, rr) { return [hw * (cc + (rr % 2 ? 0.5 : 0)) - hw / 2, vh * rr - vh / 2]; }
+    for (var r = 0; r < rows; r++) for (var k = 0; k < cols; k++) {
+      var p = c(k, r), pts = [];
+      for (var i = 0; i < 6; i++) { var a = Math.PI / 180 * (60 * i - 30); pts.push((p[0] + size * Math.cos(a)).toFixed(1) + ',' + (p[1] + size * Math.sin(a)).toFixed(1)); }
+      var poly = document.createElementNS(NS, 'polygon');
+      poly.setAttribute('points', pts.join(' ')); poly.setAttribute('fill', 'none');
+      poly.setAttribute('stroke', 'rgba(120,112,95,0.26)'); poly.setAttribute('stroke-width', '1');
+      svg.appendChild(poly);
+    }
+    var path = document.createElementNS(NS, 'path');
+    var pts = [c(1, 3), c(2, 3), c(2, 2), c(3, 1), c(4, 1), c(5, 2), c(5, 3), c(6, 4)].map(function (p) { return p[0] + ',' + p[1]; });
+    path.setAttribute('d', 'M' + pts.join(' L')); path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#6d6455'); path.setAttribute('stroke-width', '2.2');
+    path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(path);
+    el.innerHTML = ''; el.appendChild(svg);
+  }
+  function init() { document.querySelectorAll('[data-hex]').forEach(hex); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 50);
+})();
+</script>

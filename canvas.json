@@ -1,0 +1,17 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "Home", "x": 0, "y": 0, "w": 1440, "h": 2300 },
+    { "file": "Project.dc.html", "title": "Project — Tronk", "x": 1560, "y": 0, "w": 1440, "h": 1950 },
+    { "file": "About.dc.html", "title": "About", "x": 3120, "y": 0, "w": 1440, "h": 1350 }
+  ],
+  "annotations": [
+    {
+      "id": "placeholders",
+      "x": 0,
+      "y": -190,
+      "w": 520,
+      "text": "Starter prototypes — dark editorial direction.\n\nPhotographs are greyscale stand-ins for yours (city hero, portrait, macro accent). Card thumbnails are drawn diagrams, not screenshots — swap them for real ones as projects get built.\n\nAnything in [BRACKETS] is a hole for you to fill."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

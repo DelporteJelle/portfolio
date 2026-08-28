@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0f1012; color: #eceae5; font-family: Inter, system-ui, sans-serif; }
+    a { color: #d9a45f; text-decoration: none; }
+    a:hover { color: #eebd88; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div style="background: #0f1012; width: 1440px; font-family: Inter, system-ui, sans-serif;">
+
+  <!-- ============ TOP BAR ============ -->
+  <div style="padding: 44px 96px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <a href="#" style="font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 21px; color: #eceae5;">Jelle Delporte</a>
+      <div style="display: flex; gap: 26px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #9d988d;">
+        <a href="#" style="color: #9d988d;">Work</a>
+        <a href="#" style="color: #9d988d;">About</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BODY ============ -->
+  <div style="padding: 92px 96px 0;">
+    <div style="display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 76px; align-items: start;">
+
+      <!-- portrait -->
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <img src="portrait.jpg" alt="" style="width: 100%; display: block; filter: grayscale(1) contrast(1.05);">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">[REPLACE: a photograph of you]</span>
+      </div>
+
+      <!-- copy -->
+      <div style="display: flex; flex-direction: column; gap: 30px; padding-top: 6px;">
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">About</div>
+
+        <h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 42px; line-height: 1.24; letter-spacing: -0.01em; color: #f4f1ea; max-width: 22ch; text-wrap: pretty;">I like problems with <em style="font-style: italic; color: #e6cba4;">sharp edges</em>.</h1>
+
+        <div style="display: flex; flex-direction: column; gap: 20px; max-width: 62ch;">
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.78; color: #b9b5ac; text-wrap: pretty;">I'm a software engineer in [YOUR CITY]. Most of what I build is infrastructure &mdash; the kind of code that has no interface, gets noticed only when it breaks, and has to be right rather than impressive. Type systems, synchronisation, and the unglamorous parts of state.</p>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.78; color: #b9b5ac; text-wrap: pretty;">[REPLACE: two or three sentences on how you got here &mdash; what you studied, where you work, what you were doing before software if that's more interesting.]</p>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.78; color: #b9b5ac; text-wrap: pretty;">Away from a keyboard I photograph cities, usually the old parts and usually in winter, when the light is low enough to make the stone look like it means something. Occasionally I point the same camera at an insect instead.</p>
+        </div>
+
+        <!-- accent photograph -->
+        <div style="display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: center; padding-top: 14px; border-top: 1px solid #1d1f22;">
+          <img src="macro.jpg" alt="" style="width: 100%; display: block; filter: grayscale(1) contrast(1.08); margin-top: 24px;">
+          <p style="margin: 24px 0 0; font-size: 14px; line-height: 1.7; color: #7c7669; text-wrap: pretty;">[REPLACE: the cockchafer photograph.] Kept small and monochrome on purpose &mdash; here it's texture that belongs with the city pictures rather than a green photograph fighting the page.</p>
+        </div>
+
+        <!-- contact -->
+        <div style="padding-top: 26px; border-top: 1px solid #1d1f22; display: flex; flex-direction: column; gap: 18px;">
+          <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">Elsewhere</div>
+          <div style="display: flex; gap: 32px; flex-wrap: wrap; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase;">
+            <a href="#" style="color: #d9a45f;">[YOUR EMAIL]</a>
+            <a href="#" style="color: #d9a45f;">GitHub</a>
+            <a href="#" style="color: #d9a45f;">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div style="padding: 84px 96px 54px;">
+    <div style="border-top: 1px solid #24262a; padding-top: 22px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">
+      <span>Jelle Delporte</span>
+      <span>Built by hand, 2026</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
