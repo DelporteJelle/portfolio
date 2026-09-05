@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include partials/head.html -->
+  <title>About — Jelle Delporte</title>
+  <meta name="description" content="Software engineer in Belgium. Infrastructure, sync, and photographs of old cities.">
+</head>
+<body data-page="about">
+  <!-- @include partials/header.html -->
+
+  <main id="main">
+
+    <div class="about-grid band">
+
+      <div class="portrait">
+        <img src="{{root}}images/placeholder-portrait.jpg" alt="Portrait photograph of Jelle Delporte">
+        <span class="label hole">[REPLACE: a photograph of you]</span>
+      </div>
+
+      <div class="about-copy">
+        <h1 class="label">About</h1>
+
+        <p class="display" style="font-size: clamp(1.875rem, 3.4vw, 2.625rem); line-height: 1.24; max-width: 22ch;">I like problems with <em>sharp edges</em>.</p>
+
+        <div class="about-copy__paras">
+          <p class="prose">I'm a software engineer in <span class="hole">[YOUR CITY]</span>. Most of what I build is infrastructure — the kind of code that has no interface, gets noticed only when it breaks, and has to be right rather than impressive. Type systems, synchronisation, and the unglamorous parts of state.</p>
+          <p class="prose hole">[REPLACE: two or three sentences on how you got here — what you studied, where you work, what you were doing before software if that's more interesting.]</p>
+          <p class="prose">Away from a keyboard I photograph cities, usually the old parts and usually in winter, when the light is low enough to make the stone look like it means something. Occasionally I point the same camera at an insect instead.</p>
+        </div>
+
+        <figure class="accent-photo">
+          <img src="{{root}}images/placeholder-macro.jpg" alt="Close-up photograph of a cockchafer in undergrowth">
+          <figcaption class="prose" style="font-size: 0.875rem; color: var(--text-muted);"><span class="hole">[REPLACE: the cockchafer photograph, and a line about where and when you took it.]</span></figcaption>
+        </figure>
+
+        <div class="elsewhere">
+          <h2 class="label">Elsewhere</h2>
+          <div class="elsewhere__links">
+            <a href="mailto:[YOUR EMAIL]" class="hole">[YOUR EMAIL]</a>
+            <a href="https://github.com/DelporteJelle">GitHub</a>
+            <a href="#" class="hole">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- @include partials/footer.html -->
+</body>
+</html>

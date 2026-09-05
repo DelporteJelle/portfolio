@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0f1012; color: #eceae5; font-family: Inter, system-ui, sans-serif; }
+    a { color: #d9a45f; text-decoration: none; }
+    a:hover { color: #eebd88; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div style="background: #0f1012; width: 1440px; font-family: Inter, system-ui, sans-serif;">
+
+  <!-- ============ TOP BAR ============ -->
+  <div style="padding: 44px 96px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <a href="#" style="font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 21px; color: #eceae5;">Jelle Delporte</a>
+      <div style="display: flex; gap: 26px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #9d988d;">
+        <a href="#" style="color: #eceae5;">Work</a>
+        <a href="#" style="color: #9d988d;">About</a>
+        <a href="#" style="color: #9d988d;">Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <div style="padding: 82px 96px 0;">
+    <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669; padding-bottom: 20px;">Project &nbsp;&middot;&nbsp; Client site &nbsp;&middot;&nbsp; [YEAR]</div>
+
+    <h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 76px; line-height: 1.04; letter-spacing: -0.02em; color: #eceae5;">Sano-J</h1>
+
+    <p style="margin: 26px 0 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 27px; line-height: 1.45; color: #cfcbc2; max-width: 32ch; text-wrap: pretty;">Booking, treatments and pricing for a <em style="font-style: italic; color: #e6cba4;">wellness practice</em>.</p>
+
+    <div style="display: flex; gap: 34px; align-items: baseline; padding-top: 34px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase;">
+      <span style="color: #7c7669;">Next.js &middot; TypeScript &middot; Vercel</span>
+      <div style="display: flex; gap: 26px;">
+        <a href="#" style="color: #d9a45f;">Visit the site &rarr; [URL]</a>
+        <a href="https://github.com/DelporteJelle/sano-j" style="color: #d9a45f;">Repository &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FIGURE ============ -->
+  <div style="padding: 56px 96px 0;">
+    <div style="aspect-ratio: 16 / 9; border: 1px solid #24262a; background: #16171a; display: flex; align-items: center; justify-content: center;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6a675f; border: 1px dashed #33353a; padding: 14px 22px;">[Screenshot: the treatments page]</span>
+    </div>
+    <div style="padding-top: 12px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">[Caption: what this screen is]</div>
+  </div>
+
+  <!-- ============ SPINE ============ -->
+  <div style="padding: 88px 96px 0;">
+
+    <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 46px; border-bottom: 1px solid #24262a;">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">The client</div>
+      <p style="margin: 0; max-width: 68ch; font-size: 17px; line-height: 1.75; color: #b9b5ac; text-wrap: pretty;">A wellness practice serving a Dutch-speaking clientele, where the whole business runs on appointments being booked and treatments being understood before someone walks through the door. [EXPAND: who they are, how you came to build it, and whether this was paid work.]</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding: 46px 0; border-bottom: 1px solid #24262a;">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">The brief</div>
+      <p style="margin: 0; max-width: 68ch; font-size: 17px; line-height: 1.75; color: #b9b5ac; text-wrap: pretty;">A site that explains what is on offer and turns interest into a booked appointment, in Dutch, without a receptionist in the loop. [EXPAND: what they were doing before &mdash; phone, Instagram DMs, a booking platform they were paying for?]</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding: 46px 0; border-bottom: 1px solid #24262a;">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">Constraints</div>
+      <p style="margin: 0; max-width: 68ch; font-size: 17px; line-height: 1.75; color: #b9b5ac; text-wrap: pretty;">Small-business realities rather than engineering ones: the site has to be findable by someone typing a treatment name into a search engine, load quickly on a phone held in one hand, and stay editable by a person who does not write code. [EXPAND: anything about privacy or health data you had to be careful with.]</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding: 46px 0; border-bottom: 1px solid #24262a;">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">What I built</div>
+      <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+        <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #b9b5ac; text-wrap: pretty;">The full customer path: treatments and what each one involves, pricing, an appointment flow, subscriptions for regulars, gift vouchers, and reviews &mdash; plus the contact route that puts an enquiry in front of the owner.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #b9b5ac; text-wrap: pretty;">Under that, the unglamorous half that decides whether a small business is ever found at all: a generated sitemap, robots rules, and pages that render fast enough to survive a mobile connection in a waiting room. [EXPAND: what you measured &mdash; Lighthouse, Core Web Vitals, search position.]</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding: 46px 0;">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">Result</div>
+      <p style="margin: 0; max-width: 68ch; font-size: 17px; line-height: 1.75; color: #b9b5ac; text-wrap: pretty;">[EXPAND: is it live, and at what address? Bookings since launch, or what the owner said the first week. A real number here is worth more than the rest of this page.]</p>
+    </div>
+
+  </div>
+
+  <!-- ============ SECONDARY FIGURES ============ -->
+  <div style="padding: 24px 96px 0;">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="aspect-ratio: 4 / 3; border: 1px solid #24262a; background: #16171a; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6a675f; border: 1px dashed #33353a; padding: 12px 18px;">[Screenshot: the booking flow]</span>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">Interest to appointment, in one path</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="aspect-ratio: 4 / 3; border: 1px solid #24262a; background: #16171a; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6a675f; border: 1px dashed #33353a; padding: 12px 18px;">[Screenshot: pricing or vouchers]</span>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">The parts that actually take money</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PREV / NEXT ============ -->
+  <div style="padding: 56px 96px 0;">
+    <div style="border-top: 1px solid #24262a; padding-top: 26px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase;">
+      <a href="#" style="color: #9d988d;">&larr; Gentleman Productions</a>
+      <a href="#" style="color: #9d988d;">Tronk &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div style="padding: 46px 96px 54px;">
+    <div style="border-top: 1px solid #24262a; padding-top: 22px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">
+      <span>Jelle Delporte</span>
+      <span>Built by hand, 2026</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

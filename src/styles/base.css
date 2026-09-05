@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, figure { margin: 0; }
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { color: var(--accent-hover); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Shared type roles ------------------------------------------------ */
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.deck {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.25rem, 2.2vw, 1.6875rem);
+  line-height: 1.45;
+  color: var(--text-deck);
+  max-width: 32ch;
+  text-wrap: pretty;
+}
+.deck em,
+.display em {
+  font-style: italic;
+  color: var(--accent-tint);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  color: var(--text);
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+}
+
+.prose {
+  max-width: var(--measure);
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.75;
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+
+/* A hole the author still has to fill. Deliberately visible. */
+.hole { color: var(--text-muted); }

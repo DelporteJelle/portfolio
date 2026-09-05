@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include partials/head.html -->
+  <title>Tronk — Jelle Delporte</title>
+  <meta name="description" content="A bot for multiplayer snake on a hexagonal grid, written for a competition.">
+</head>
+<body data-page="work">
+  <!-- @include partials/header.html -->
+
+  <main id="main">
+
+    <header class="page-head band">
+      <p class="label page-head__eyebrow">Project · Competition · <span class="hole">[YEAR]</span></p>
+      <h1 class="display">Tronk</h1>
+      <p class="deck page-head__deck">A bot for multiplayer snake on a <em>hexagonal</em> grid, written for a competition.</p>
+      <div class="page-head__meta">
+        <span class="label">TypeScript · Search</span>
+        <div class="page-head__links">
+          <a href="#" class="hole">[Write-up →]</a>
+          <span class="label">Repository private</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="figure band">
+      <figure>
+        <div class="figure__frame">
+          <div class="hex hex--figure" data-hex data-hex-size="34" data-hex-labels="MY BOT|OPPONENT"></div>
+        </div>
+        <figcaption class="figure__caption">Two bots, one board — the move before a head-on collision</figcaption>
+      </figure>
+    </div>
+
+    <div class="spine band">
+
+      <section class="spine__row">
+        <h2 class="label">What it is</h2>
+        <div class="spine__body">
+          <p class="prose">Tronk is a competition where everyone writes a bot for a multiplayer snake game played on a hexagonal board. Bots take one move per tick, share the arena with the other bots, and lose the moment they run into a wall, a trail, or each other.</p>
+        </div>
+      </section>
+
+      <section class="spine__row">
+        <h2 class="label">The interesting problem</h2>
+        <div class="spine__body">
+          <p class="prose">Six neighbours instead of four sounds like a small change and isn't. The branching factor rises, familiar grid heuristics stop being admissible, and every move has to be returned inside a hard deadline — so the search has to be worth more than it costs on a board that only exists for a few hundred milliseconds. <span class="hole">[EXPAND: what the actual deadline was]</span></p>
+        </div>
+      </section>
+
+      <section class="spine__row">
+        <h2 class="label">How I solved it</h2>
+        <div class="spine__body">
+          <p class="prose">Axial coordinates for the board, so neighbours are arithmetic rather than lookups. A flood fill each tick to score reachable space, and shallow lookahead that spends its budget where the opponents actually are — territory first, aggression only when the fill says the space is already won. <span class="hole">[EXPAND: the one decision you'd defend in an interview]</span></p>
+        </div>
+      </section>
+
+      <section class="spine__row">
+        <h2 class="label">What I'd do differently</h2>
+        <div class="spine__body">
+          <p class="prose">The evaluation function was tuned by hand against a handful of matches, which is another way of saying it was tuned against my own habits. Self-play with recorded games would have found the weightings faster and less flatteringly. <span class="hole">[EXPAND: what actually cost you the round]</span></p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="pager band" aria-label="More projects">
+      <div class="pager__inner">
+        <a href="{{root}}sano-j/">← Sano-J</a>
+        <a href="{{root}}gentleman-productions/">Gentleman Productions →</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <!-- @include partials/footer.html -->
+</body>
+</html>

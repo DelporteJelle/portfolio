@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.superpowers/
+
+# Regenerated from design/*.dc.html by the canvas seeder; 2.7MB of editor payload.
+design/jelle-delporte-portfolio.html

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0f1012; color: #eceae5; font-family: Inter, system-ui, sans-serif; }
+    a { color: #d9a45f; text-decoration: none; }
+    a:hover { color: #eebd88; }
+    * { box-sizing: border-box; }
+
+    /* The PDF is this page, printed. Ink on paper, no site chrome, A4 measure. */
+    @media print {
+      @page { size: A4; margin: 16mm 15mm; }
+      body { background: #ffffff; color: #14140f; }
+      .page { width: auto !important; background: #ffffff !important; }
+      .band { padding-left: 0 !important; padding-right: 0 !important; }
+      .screen-only { display: none !important; }
+      .rule { border-color: #d6d2c6 !important; }
+      .ink { color: #14140f !important; }
+      .body-copy { color: #35322b !important; font-size: 11pt !important; line-height: 1.5 !important; }
+      .label { color: #6b6659 !important; }
+      .role-entry { break-inside: avoid; }
+      a { color: #14140f !important; }
+    }
+  </style>
+</helmet>
+
+<div class="page" style="background: #0f1012; width: 1440px; font-family: Inter, system-ui, sans-serif;">
+
+  <!-- ============ TOP BAR (screen only) ============ -->
+  <div class="band screen-only" style="padding: 44px 96px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <a href="#" style="font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 21px; color: #eceae5;">Jelle Delporte</a>
+      <div style="display: flex; gap: 26px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #9d988d;">
+        <a href="#" style="color: #9d988d;">Work</a>
+        <a href="#" style="color: #9d988d;">About</a>
+        <a href="#" style="color: #eceae5;">Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <div class="band" style="padding: 84px 96px 0;">
+    <div style="max-width: 880px; display: flex; flex-direction: column; gap: 24px;">
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;">
+        <h1 class="ink" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1.06; letter-spacing: -0.02em; color: #eceae5;">Jelle Delporte</h1>
+        <a href="#" class="screen-only" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #d9a45f; border: 1px solid #3a3d42; padding: 10px 16px; white-space: nowrap;">Download PDF &darr;</a>
+      </div>
+
+      <p class="body-copy" style="margin: 0; max-width: 60ch; font-size: 17px; line-height: 1.7; color: #b9b5ac; text-wrap: pretty;">Software engineer with [X] years of experience, building web applications end to end &mdash; most recently in Next.js and TypeScript, for clients who need the result to work rather than to impress. [EXPAND: one line on what you want next.]</p>
+
+      <div class="label" style="display: flex; gap: 30px; flex-wrap: wrap; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">
+        <a href="#" style="color: #d9a45f;">[EMAIL]</a>
+        <a href="#" style="color: #d9a45f;">github.com/DelporteJelle</a>
+        <a href="#" style="color: #d9a45f;">[LINKEDIN]</a>
+        <span>[CITY, BELGIUM]</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <div class="band" style="padding: 78px 96px 0;">
+    <div class="rule" style="border-top: 1px solid #24262a; padding-top: 30px;">
+      <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669; padding-bottom: 30px;">Experience</div>
+
+      <div class="role-entry" style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 40px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #7c7669;">[MMM YYYY &mdash; PRESENT]</div>
+        <div style="max-width: 68ch; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <span class="ink" style="font-family: Fraunces, Georgia, serif; font-size: 24px; color: #eceae5;">[COMPANY]</span>
+            <span class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">[JOB TITLE]</span>
+          </div>
+          <p class="body-copy" style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9b5ac; text-wrap: pretty;">[EXPAND: two or three sentences on what you actually did here &mdash; the systems you worked on, the size of the team, one thing that shipped because of you. Write what changed, not what you were responsible for.]</p>
+        </div>
+      </div>
+
+      <div class="role-entry" style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 40px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #7c7669;">[MMM YYYY &mdash; MMM YYYY]</div>
+        <div style="max-width: 68ch; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <span class="ink" style="font-family: Fraunces, Georgia, serif; font-size: 24px; color: #eceae5;">[COMPANY]</span>
+            <span class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">[JOB TITLE]</span>
+          </div>
+          <p class="body-copy" style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9b5ac; text-wrap: pretty;">[EXPAND: same again for the previous role.]</p>
+        </div>
+      </div>
+
+      <div class="role-entry" style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #7c7669;">[MMM YYYY &mdash; MMM YYYY]</div>
+        <div style="max-width: 68ch; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <span class="ink" style="font-family: Fraunces, Georgia, serif; font-size: 24px; color: #eceae5;">[FREELANCE / CLIENT WORK]</span>
+            <span class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669;">[JOB TITLE]</span>
+          </div>
+          <p class="body-copy" style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9b5ac; text-wrap: pretty;">[EXPAND: if Gentleman Productions and Sano-J were paid engagements, they belong here as a role, not only as portfolio pieces. Delete this block if they were not.]</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ EDUCATION ============ -->
+  <div class="band" style="padding: 62px 96px 0;">
+    <div class="rule" style="border-top: 1px solid #24262a; padding-top: 30px;">
+      <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669; padding-bottom: 26px;">Education</div>
+
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 22px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #7c7669;">[YYYY &mdash; YYYY]</div>
+        <div style="max-width: 68ch;">
+          <span class="ink" style="font-family: Fraunces, Georgia, serif; font-size: 20px; color: #eceae5;">[DEGREE]</span>
+          <span class="body-copy" style="font-size: 16px; color: #9d988d;"> &mdash; [INSTITUTION]</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #7c7669;">[YYYY &mdash; YYYY]</div>
+        <div style="max-width: 68ch;">
+          <span class="ink" style="font-family: Fraunces, Georgia, serif; font-size: 20px; color: #eceae5;">[DEGREE]</span>
+          <span class="body-copy" style="font-size: 16px; color: #9d988d;"> &mdash; [INSTITUTION]</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ SKILLS ============ -->
+  <div class="band" style="padding: 62px 96px 0;">
+    <div class="rule" style="border-top: 1px solid #24262a; padding-top: 30px;">
+      <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #7c7669; padding-bottom: 26px;">Skills</div>
+
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 24px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7c7669;">Languages</div>
+        <p class="body-copy" style="margin: 0; max-width: 68ch; font-size: 16px; line-height: 1.7; color: #b9b5ac;">TypeScript, JavaScript &mdash; [EXPAND: and the rest, in the order you would defend them in an interview.]</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 24px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7c7669;">Frameworks</div>
+        <p class="body-copy" style="margin: 0; max-width: 68ch; font-size: 16px; line-height: 1.7; color: #b9b5ac;">Next.js, React &mdash; [EXPAND]</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 24px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7c7669;">Tools</div>
+        <p class="body-copy" style="margin: 0; max-width: 68ch; font-size: 16px; line-height: 1.7; color: #b9b5ac;">Git, Vercel, Vitest, ESLint &mdash; [EXPAND]</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px;">
+        <div class="label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7c7669;">Practices</div>
+        <p class="body-copy" style="margin: 0; max-width: 68ch; font-size: 16px; line-height: 1.7; color: #b9b5ac;">[EXPAND: testing, accessibility, SEO, performance budgets, code review &mdash; whichever you would actually stand behind. Leave out anything you have touched once.]</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ FOOTER (screen only) ============ -->
+  <div class="band screen-only" style="padding: 80px 96px 54px;">
+    <div style="border-top: 1px solid #24262a; padding-top: 22px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #6a675f;">
+      <span>Jelle Delporte</span>
+      <span>Built by hand, 2026</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

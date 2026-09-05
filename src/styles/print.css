@@ -1,0 +1,48 @@
+/*
+ * The resume PDF is this page, printed. There is no second file to keep in
+ * sync: print inverts the theme to ink on paper and drops the site chrome.
+ */
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 15mm;
+  }
+
+  :root { color-scheme: light; }
+
+  body {
+    background: #ffffff;
+    color: #14140f;
+  }
+
+  .band { padding-inline: 0; }
+
+  /* Site chrome has no business on paper. */
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .download { display: none !important; }
+
+  .resume-head,
+  .resume-section { padding-top: 0; }
+
+  .resume-section__inner,
+  .elsewhere { border-color: #d6d2c6; }
+
+  .display,
+  .entry__org,
+  .resume-head__name { color: #14140f; }
+
+  .prose,
+  .entry__body p { color: #35322b; font-size: 11pt; line-height: 1.5; }
+
+  .label,
+  .entry__dates,
+  .resume-contact { color: #6b6659; }
+
+  a { color: #14140f; }
+
+  /* A role split across a page break is unreadable. */
+  .entry { break-inside: avoid; }
+  .resume-section { break-inside: avoid-page; }
+}

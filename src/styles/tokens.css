@@ -1,0 +1,34 @@
+/* The palette and type ramp settled during design. Everything else reads these. */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --ground: #0f1012;
+  --surface: #16171a;
+  --surface-well: #1b1d20;
+  --border: #24262a;
+  --border-dashed: #33353a;
+
+  /* Text ramp, brightest to faintest */
+  --text: #eceae5;
+  --text-deck: #cfcbc2;
+  --text-body: #b9b5ac;
+  --text-secondary: #9d988d;
+  --text-muted: #7c7669;
+  --text-faint: #6a675f;
+
+  /* Accent */
+  --accent: #d9a45f;
+  --accent-hover: #eebd88;
+  --accent-tint: #e6cba4;
+
+  /* Type */
+  --font-display: Fraunces, Georgia, 'Times New Roman', serif;
+  --font-body: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Rhythm */
+  --gutter: clamp(1.25rem, 5vw, 6rem);
+  --measure: 68ch;
+  --spine-label: 220px;
+}

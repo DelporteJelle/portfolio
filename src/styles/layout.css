@@ -1,0 +1,140 @@
+.band {
+  padding-inline: var(--gutter);
+}
+
+/* Header ----------------------------------------------------------- */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-block: 2.75rem 0;
+}
+
+/* On the home page the header sits over the photograph. */
+body[data-hero='true'] .site-header {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.3125rem;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+.wordmark:hover { color: var(--text); }
+
+.site-nav {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.625rem);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.site-nav a { color: var(--text-secondary); }
+.site-nav a:hover { color: var(--text); }
+
+/* Active page, done in CSS so it survives JS being off. */
+body[data-page='work'] .site-nav [data-nav='work'],
+body[data-page='about'] .site-nav [data-nav='about'],
+body[data-page='resume'] .site-nav [data-nav='resume'] { color: var(--text); }
+
+/* Over the photograph the muted grey is not readable enough. */
+body[data-hero='true'] .site-nav a { color: var(--text-deck); }
+body[data-hero='true'] .site-nav [data-nav='work'] { color: var(--text); }
+
+/* Footer ----------------------------------------------------------- */
+
+.site-footer {
+  padding-block: clamp(3rem, 6vw, 4.75rem) 3.375rem;
+}
+.site-footer__inner {
+  border-top: 1px solid var(--border);
+  padding-top: 1.375rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Page scaffolding ------------------------------------------------- */
+
+.page-head {
+  padding-top: clamp(3rem, 6vw, 5.125rem);
+}
+.page-head__eyebrow { padding-bottom: 1.25rem; }
+.page-head__deck { margin-top: 1.625rem; }
+
+.page-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.125rem;
+  align-items: baseline;
+  padding-top: 2.125rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.page-head__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.625rem;
+}
+
+/* The section spine: mono label beside a column of prose. */
+.spine { padding-top: clamp(3rem, 6vw, 5.5rem); }
+
+.spine__row {
+  display: grid;
+  grid-template-columns: var(--spine-label) minmax(0, 1fr);
+  gap: 2.5rem;
+  padding-block: 2.875rem;
+  border-bottom: 1px solid var(--border);
+}
+.spine__row:first-child { padding-top: 0; }
+.spine__row:last-child { border-bottom: 0; }
+
+.spine__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+@media (max-width: 860px) {
+  .spine__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.875rem;
+  }
+}
+
+/* Prev / next ------------------------------------------------------ */
+
+.pager {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+.pager__inner {
+  border-top: 1px solid var(--border);
+  padding-top: 1.625rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.pager__inner a { color: var(--text-secondary); }
+.pager__inner a:hover { color: var(--text); }

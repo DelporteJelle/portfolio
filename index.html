@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include partials/head.html -->
+  <title>Jelle Delporte — Software engineer</title>
+  <meta name="description" content="Software engineer. Client websites in Next.js, and the occasional competition algorithm.">
+</head>
+<body data-page="work" data-hero="true">
+  <!-- @include partials/header.html -->
+
+  <main id="main">
+
+    <section class="hero">
+      <img class="hero__image" src="{{root}}images/placeholder-hero.jpg" alt="Narrow city street between brick buildings, in black and white">
+      <div class="hero__scrim"></div>
+      <div class="hero__copy band">
+        <h1 class="hero__headline">I build software, mostly the kind that <em>quietly holds</em> other things up.</h1>
+      </div>
+    </section>
+
+    <section class="work band" id="work">
+      <div class="section-head">
+        <h2 class="label">Selected work</h2>
+        <span class="label">Three projects</span>
+      </div>
+
+      <div class="work__grid">
+
+        <a class="card" href="{{root}}tronk/">
+          <div class="card__figure">
+            <div class="hex hex--card" data-hex data-hex-size="14"></div>
+          </div>
+          <div class="card__body">
+            <span class="label card__kind">Competition</span>
+            <div class="card__heading">
+              <span class="card__title">Tronk</span>
+              <span class="card__year hole">[YEAR]</span>
+            </div>
+            <p class="card__line">A bot for multiplayer snake on a hexagonal grid.</p>
+            <span class="card__stack">TypeScript · Search</span>
+          </div>
+        </a>
+
+        <a class="card" href="{{root}}gentleman-productions/">
+          <div class="card__figure shot-pending">
+            <span>[Screenshot:<br>gentleman&#8209;productions home]</span>
+          </div>
+          <div class="card__body">
+            <span class="label card__kind">Client site</span>
+            <div class="card__heading">
+              <span class="card__title">Gentleman Productions</span>
+              <span class="card__year hole">[YEAR]</span>
+            </div>
+            <p class="card__line">A site for a dance and theatre company in Merelbeke.</p>
+            <span class="card__stack">Next.js · TypeScript</span>
+          </div>
+        </a>
+
+        <a class="card" href="{{root}}sano-j/">
+          <div class="card__figure shot-pending">
+            <span>[Screenshot:<br>sano&#8209;j treatments]</span>
+          </div>
+          <div class="card__body">
+            <span class="label card__kind">Client site</span>
+            <div class="card__heading">
+              <span class="card__title">Sano-J</span>
+              <span class="card__year hole">[YEAR]</span>
+            </div>
+            <p class="card__line">Booking, treatments and pricing for a wellness practice.</p>
+            <span class="card__stack">Next.js · SEO</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="about-strip band">
+      <div class="about-strip__inner">
+        <h2 class="label">About</h2>
+        <div class="about-strip__copy">
+          <p class="about-strip__statement">Engineer in <span class="hole">[YOUR CITY]</span>. I like problems with sharp edges — type systems, sync, and the unglamorous parts of state.</p>
+          <div class="about-strip__links">
+            <a href="mailto:[YOUR EMAIL]">Email</a>
+            <a href="https://github.com/DelporteJelle">GitHub</a>
+            <a href="{{root}}about/">Read more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @include partials/footer.html -->
+</body>
+</html>

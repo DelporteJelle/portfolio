@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include partials/head.html -->
+  <title>Resume — Jelle Delporte</title>
+  <meta name="description" content="Experience, education and skills. Print this page for the PDF.">
+</head>
+<body data-page="resume">
+  <!-- @include partials/header.html -->
+
+  <main id="main">
+
+    <header class="resume-head band">
+      <div class="resume-head__top">
+        <h1 class="display resume-head__name">Jelle Delporte</h1>
+        <!-- Printing this page IS the PDF: see src/styles/print.css -->
+        <button class="download" type="button" data-print>Download PDF ↓</button>
+      </div>
+
+      <p class="prose">Software engineer with <span class="hole">[X]</span> years of experience, building web applications end to end — most recently in Next.js and TypeScript, for clients who need the result to work rather than to impress. <span class="hole">[EXPAND: one line on what you want next.]</span></p>
+
+      <div class="resume-contact">
+        <a href="mailto:[YOUR EMAIL]" class="hole">[EMAIL]</a>
+        <a href="https://github.com/DelporteJelle">github.com/DelporteJelle</a>
+        <a href="#" class="hole">[LINKEDIN]</a>
+        <span class="hole">[CITY, BELGIUM]</span>
+      </div>
+    </header>
+
+    <section class="resume-section band">
+      <div class="resume-section__inner">
+        <h2 class="label resume-section__label">Experience</h2>
+
+        <article class="entry">
+          <p class="entry__dates hole">[MMM YYYY — PRESENT]</p>
+          <div class="entry__body">
+            <div class="entry__title">
+              <span class="entry__org hole">[COMPANY]</span>
+              <span class="label hole">[JOB TITLE]</span>
+            </div>
+            <p class="prose hole">[EXPAND: two or three sentences on what you actually did here — the systems you worked on, the size of the team, one thing that shipped because of you. Write what changed, not what you were responsible for.]</p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <p class="entry__dates hole">[MMM YYYY — MMM YYYY]</p>
+          <div class="entry__body">
+            <div class="entry__title">
+              <span class="entry__org hole">[COMPANY]</span>
+              <span class="label hole">[JOB TITLE]</span>
+            </div>
+            <p class="prose hole">[EXPAND: same again for the previous role.]</p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <p class="entry__dates hole">[MMM YYYY — MMM YYYY]</p>
+          <div class="entry__body">
+            <div class="entry__title">
+              <span class="entry__org hole">[FREELANCE / CLIENT WORK]</span>
+              <span class="label hole">[JOB TITLE]</span>
+            </div>
+            <p class="prose hole">[EXPAND: if Gentleman Productions and Sano-J were paid engagements, they belong here as a role, not only as portfolio pieces. Delete this block if they were not.]</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="resume-section band">
+      <div class="resume-section__inner">
+        <h2 class="label resume-section__label">Education</h2>
+
+        <article class="entry entry--tight">
+          <p class="entry__dates hole">[YYYY — YYYY]</p>
+          <div class="entry__body">
+            <p><span class="entry__org entry__org--small hole">[DEGREE]</span> <span class="prose" style="display:inline">— <span class="hole">[INSTITUTION]</span></span></p>
+          </div>
+        </article>
+
+        <article class="entry entry--tight">
+          <p class="entry__dates hole">[YYYY — YYYY]</p>
+          <div class="entry__body">
+            <p><span class="entry__org entry__org--small hole">[DEGREE]</span> <span class="prose" style="display:inline">— <span class="hole">[INSTITUTION]</span></span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="resume-section band">
+      <div class="resume-section__inner">
+        <h2 class="label resume-section__label">Skills</h2>
+
+        <div class="entry entry--tight">
+          <p class="entry__dates">Languages</p>
+          <div class="entry__body">
+            <p class="prose">TypeScript, JavaScript — <span class="hole">[EXPAND: and the rest, in the order you would defend them in an interview.]</span></p>
+          </div>
+        </div>
+
+        <div class="entry entry--tight">
+          <p class="entry__dates">Frameworks</p>
+          <div class="entry__body">
+            <p class="prose">Next.js, React — <span class="hole">[EXPAND]</span></p>
+          </div>
+        </div>
+
+        <div class="entry entry--tight">
+          <p class="entry__dates">Tools</p>
+          <div class="entry__body">
+            <p class="prose">Git, Vercel, Vitest, ESLint — <span class="hole">[EXPAND]</span></p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <p class="entry__dates">Practices</p>
+          <div class="entry__body">
+            <p class="prose hole">[EXPAND: testing, accessibility, SEO, performance budgets, code review — whichever you would actually stand behind. Leave out anything you have touched once.]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @include partials/footer.html -->
+</body>
+</html>

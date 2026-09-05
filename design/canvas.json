@@ -1,0 +1,71 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Home",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2280
+    },
+    {
+      "file": "Tronk.dc.html",
+      "title": "Tronk",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 2320
+    },
+    {
+      "file": "Gentleman.dc.html",
+      "title": "Gentleman Productions",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 3000
+    },
+    {
+      "file": "SanoJ.dc.html",
+      "title": "Sano-J",
+      "x": 0,
+      "y": 3200,
+      "w": 1440,
+      "h": 3100
+    },
+    {
+      "file": "Resume.dc.html",
+      "title": "Resume",
+      "x": 1560,
+      "y": 3200,
+      "w": 1440,
+      "h": 2000
+    },
+    {
+      "file": "About.dc.html",
+      "title": "About",
+      "x": 3120,
+      "y": 3200,
+      "w": 1440,
+      "h": 1500
+    }
+  ],
+  "annotations": [
+    {
+      "id": "placeholders",
+      "x": 0,
+      "y": -360,
+      "w": 560,
+      "text": "Five pages plus About, dark editorial direction.\n\nEvery fact only you know is in [BRACKETS] — years, roles, education, results, and the Sano-J live URL. [EXPAND: …] marks a paragraph waiting for the detail that makes it worth reading.\n\nClient-site screenshots are honest empty frames, not fake screenshots: both sites really exist, so a drawn stand-in would misrepresent them.\n\nTronk's repository is private, so that link is replaced by a note. The hero, portrait and macro photographs are greyscale stand-ins for yours."
+    },
+    {
+      "id": "resume-print",
+      "x": 1560,
+      "y": 5320,
+      "w": 520,
+      "text": "The Resume artboard carries a @media print block: on paper it inverts to ink on white, drops the nav, footer and download button, and sets 11pt body type on A4. That print stylesheet is what produces the PDF — there is no second file to keep in sync."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
